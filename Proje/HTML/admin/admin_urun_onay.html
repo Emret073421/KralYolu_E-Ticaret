@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kral Yolu - Bekleyen Ürün Onayları</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Ortak Stiller -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/admin_panel.css">
+
+    <style>
+        .product-list-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .product-list-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--gold);
+        }
+        .product-thumb {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .table > :not(caption) > * > * {
+            padding: 1rem 0.75rem;
+            vertical-align: middle;
+        }
+        .search-box {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 10px 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .search-box input {
+            background: transparent;
+            border: none;
+            outline: none;
+            width: 100%;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SOL SİDEBAR (MENÜ) -->
+    <aside class="admin-sidebar">
+        <div class="admin-brand">
+            <i class="bi bi-shield-lock-fill"></i>
+            <div class="admin-brand-texts">
+                <h4>KRAL YOLU</h4>
+                <small>YÖNETİM PANELİ</small>
+            </div>
+        </div>
+        
+        <ul class="admin-nav">
+            <li>
+                <a href="admin_panel.html"><i class="bi bi-speedometer2"></i> Sistem Özeti</a>
+            </li>
+            
+            <li class="nav-section-title">E-Ticaret Yönetimi</li>
+            <li>
+                <a href="admin_urun_onay.html" class="active"><i class="bi bi-bag-check-fill"></i> Ürün Onayları <span class="badge bg-danger ms-auto rounded-pill">12</span></a>
+            </li>
+            <li>
+                <a href="admin_kategoriler.html"><i class="bi bi-tags-fill"></i> Kategori İşlemleri</a>
+            </li>
+            
+            <li class="nav-section-title">Kullanıcı & Ağ</li>
+            <li>
+                <a href="admin_satici_onay.html"><i class="bi bi-shop-window"></i> Satıcı / Mağaza Onayları <span class="badge bg-warning text-dark ms-auto rounded-pill">5</span></a>
+            </li>
+            <li>
+                <a href="admin_personel.html"><i class="bi bi-person-badge-fill"></i> Personel Ekleme / Yetki</a>
+            </li>
+            
+            <li class="nav-section-title">Sistem & Analiz</li>
+            <li>
+                <a href="#"><i class="bi bi-bar-chart-line-fill"></i> Gelişmiş Raporlama</a>
+            </li>
+            <li>
+                <a href="../../index.php"><i class="bi bi-door-open text-danger"></i> Güvenli Çıkış</a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- SAĞ ANA İÇERİK -->
+    <main class="admin-main">
+        
+        <!-- Üst Başlık -->
+        <header class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+            <div>
+                <h2 class="m-0 fw-bold" style="color:#0f172a;">Bekleyen Ürün Onayları</h2>
+                <span class="text-muted" style="font-size:0.9rem;">Şu anda sistemde onaylanmayı bekleyen <span class="text-danger fw-bold">12 ürün</span> bulunmaktadır.</span>
+            </div>
+            <div class="search-box d-flex align-items-center">
+                <i class="bi bi-search text-muted"></i>
+                <input type="text" placeholder="Ürün veya satıcı ara...">
+            </div>
+        </header>
+
+        <!-- Filtreler -->
+        <div class="d-flex gap-2 mb-4 overflow-auto pb-2">
+            <button class="btn btn-dark btn-sm rounded-pill px-3">Tümü</button>
+            <button class="btn btn-outline-secondary btn-sm rounded-pill px-3">Giyim</button>
+            <button class="btn btn-outline-secondary btn-sm rounded-pill px-3">Elektronik</button>
+            <button class="btn btn-outline-secondary btn-sm rounded-pill px-3">Ev & Yaşam</button>
+            <button class="btn btn-outline-secondary btn-sm rounded-pill px-3">Kozmetik</button>
+        </div>
+
+        <!-- Ürün Tablosu -->
+        <div class="product-list-card">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead class="bg-light">
+                        <tr>
+                            <th class="ps-4">Ürün Bilgisi</th>
+                            <th>Kategori</th>
+                            <th>Satıcı</th>
+                            <th>Fiyat</th>
+                            <th>Tarih</th>
+                            <th>Durum</th>
+                            <th class="text-end pe-4">İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Örnek Ürün 1 -->
+                        <tr>
+                            <td class="ps-4">
+                                <div class="d-flex align-items-center gap-3">
+                                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&q=80" alt="Ürün" class="product-thumb">
+                                    <div>
+                                        <div class="fw-bold text-dark">Nike Air Max Koşu Ayakkabısı</div>
+                                        <small class="text-muted">SKU: NK-8821-AM</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Ayakkabı > Spor</td>
+                            <td>
+                                <div class="fw-medium">Ayakkabı Dünyası</div>
+                                <small class="text-success"><i class="bi bi-star-fill small"></i> 9.4</small>
+                            </td>
+                            <td><span class="fw-bold">4.500 ₺</span></td>
+                            <td><small>20.04.2026<br>14:15</small></td>
+                            <td><span class="status-badge bg-warning text-dark">Onay Bekliyor</span></td>
+                            <td class="text-end pe-4">
+                                <a href="admin_urun_onay_detay.html" class="btn btn-primary btn-sm px-3 shadow-sm" style="background:#2563eb; border:none;">
+                                    <i class="bi bi-eye-fill me-1"></i> İncele
+                                </a>
+                            </td>
+                        </tr>
+
+                        <!-- Örnek Ürün 2 -->
+                        <tr>
+                            <td class="ps-4">
+                                <div class="d-flex align-items-center gap-3">
+                                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&q=80" alt="Ürün" class="product-thumb">
+                                    <div>
+                                        <div class="fw-bold text-dark">Modern Akıllı Saat v2</div>
+                                        <small class="text-muted">SKU: SW-2024-XP</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Elektronik > Aksesuar</td>
+                            <td>
+                                <div class="fw-medium">TeknoMarket TR</div>
+                                <small class="text-success"><i class="bi bi-star-fill small"></i> 8.9</small>
+                            </td>
+                            <td><span class="fw-bold">2.150 ₺</span></td>
+                            <td><small>20.04.2026<br>12:30</small></td>
+                            <td><span class="status-badge bg-warning text-dark">Onay Bekliyor</span></td>
+                            <td class="text-end pe-4">
+                                <a href="admin_urun_onay_detay.html" class="btn btn-primary btn-sm px-3 shadow-sm" style="background:#2563eb; border:none;">
+                                    <i class="bi bi-eye-fill me-1"></i> İncele
+                                </a>
+                            </td>
+                        </tr>
+
+                        <!-- Örnek Ürün 3 -->
+                        <tr>
+                            <td class="ps-4">
+                                <div class="d-flex align-items-center gap-3">
+                                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&q=80" alt="Ürün" class="product-thumb">
+                                    <div>
+                                        <div class="fw-bold text-dark">Premium Kablosuz Kulaklık</div>
+                                        <small class="text-muted">SKU: AUD-990-BT</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Ses Sistemleri</td>
+                            <td>
+                                <div class="fw-medium">Ses Uzmanı</div>
+                                <small class="text-success"><i class="bi bi-star-fill small"></i> 9.1</small>
+                            </td>
+                            <td><span class="fw-bold">1.850 ₺</span></td>
+                            <td><small>20.04.2026<br>09:45</small></td>
+                            <td><span class="status-badge bg-warning text-dark">Onay Bekliyor</span></td>
+                            <td class="text-end pe-4">
+                                <a href="admin_urun_onay_detay.html" class="btn btn-primary btn-sm px-3 shadow-sm" style="background:#2563eb; border:none;">
+                                    <i class="bi bi-eye-fill me-1"></i> İncele
+                                </a>
+                            </td>
+                        </tr>
+
+                        <!-- Örnek Ürün 4 -->
+                        <tr>
+                            <td class="ps-4">
+                                <div class="d-flex align-items-center gap-3">
+                                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=200&q=80" alt="Ürün" class="product-thumb">
+                                    <div>
+                                        <div class="fw-bold text-dark">Retro Güneş Gözlüğü</div>
+                                        <small class="text-muted">SKU: GLS-550-RT</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Aksesuar > Gözlük</td>
+                            <td>
+                                <div class="fw-medium">Moda Optik</div>
+                                <small class="text-success"><i class="bi bi-star-fill small"></i> 8.5</small>
+                            </td>
+                            <td><span class="fw-bold">450 ₺</span></td>
+                            <td><small>19.04.2026<br>21:20</small></td>
+                            <td><span class="status-badge bg-warning text-dark">Onay Bekliyor</span></td>
+                            <td class="text-end pe-4">
+                                <a href="admin_urun_onay_detay.html" class="btn btn-primary btn-sm px-3 shadow-sm" style="background:#2563eb; border:none;">
+                                    <i class="bi bi-eye-fill me-1"></i> İncele
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Pagination (Sayfalama) -->
+            <div class="p-4 border-top bg-light">
+                <nav class="d-flex justify-content-between align-items-center">
+                    <span class="text-muted small">Toplam 12 üründen 1-4 arası gösteriliyor</span>
+                    <ul class="pagination pagination-sm m-0">
+                        <li class="page-item disabled"><a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

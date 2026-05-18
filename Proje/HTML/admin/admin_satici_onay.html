@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kral Yolu - Bekleyen Satıcı Onayları</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Ortak Stiller -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/admin_panel.css">
+
+    <style>
+        .shop-list-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .shop-list-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--gold);
+        }
+        .shop-avatar {
+            width: 50px;
+            height: 50px;
+            background: #f1f5f9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #64748b;
+            border: 2px solid #e2e8f0;
+        }
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .table > :not(caption) > * > * {
+            padding: 1.2rem 0.75rem;
+            vertical-align: middle;
+        }
+        .search-box {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 10px 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .search-box input {
+            background: transparent;
+            border: none;
+            outline: none;
+            width: 100%;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SOL SİDEBAR (MENÜ) -->
+    <aside class="admin-sidebar">
+        <div class="admin-brand">
+            <i class="bi bi-shield-lock-fill"></i>
+            <div class="admin-brand-texts">
+                <h4>KRAL YOLU</h4>
+                <small>YÖNETİM PANELİ</small>
+            </div>
+        </div>
+        
+        <ul class="admin-nav">
+            <li>
+                <a href="admin_panel.html"><i class="bi bi-speedometer2"></i> Sistem Özeti</a>
+            </li>
+            
+            <li class="nav-section-title">E-Ticaret Yönetimi</li>
+            <li>
+                <a href="admin_urun_onay.html"><i class="bi bi-bag-check-fill"></i> Ürün Onayları <span class="badge bg-danger ms-auto rounded-pill">12</span></a>
+            </li>
+            <li>
+                <a href="admin_kategoriler.html"><i class="bi bi-tags-fill"></i> Kategori İşlemleri</a>
+            </li>
+            
+            <li class="nav-section-title">Kullanıcı & Ağ</li>
+            <li>
+                <a href="admin_satici_onay.html" class="active"><i class="bi bi-shop-window"></i> Satıcı / Mağaza Onayları <span class="badge bg-warning text-dark ms-auto rounded-pill">5</span></a>
+            </li>
+            <li>
+                <a href="admin_personel.html"><i class="bi bi-person-badge-fill"></i> Personel Ekleme / Yetki</a>
+            </li>
+            
+            <li class="nav-section-title">Sistem & Analiz</li>
+            <li>
+                <a href="#"><i class="bi bi-bar-chart-line-fill"></i> Gelişmiş Raporlama</a>
+            </li>
+            <li>
+                <a href="../../index.php"><i class="bi bi-door-open text-danger"></i> Güvenli Çıkış</a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- SAĞ ANA İÇERİK -->
+    <main class="admin-main">
+        
+        <!-- Üst Başlık -->
+        <header class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+            <div>
+                <h2 class="m-0 fw-bold" style="color:#0f172a;">Bekleyen Satıcı Başvuruları</h2>
+                <span class="text-muted" style="font-size:0.9rem;">Sisteme yeni kayıt olan ve onay bekleyen <span class="text-warning fw-bold">5 satıcı başvurusu</span> bulunmaktadır.</span>
+            </div>
+            <div class="search-box d-flex align-items-center">
+                <i class="bi bi-search text-muted"></i>
+                <input type="text" placeholder="Mağaza veya yetkili ara...">
+            </div>
+        </header>
+
+        <!-- Satıcı Tablosu -->
+        <div class="shop-list-card shadow-sm">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead class="bg-light text-uppercase small fw-bold">
+                        <tr>
+                            <th class="ps-4">Mağaza Bilgisi</th>
+                            <th>Yetkili Kişi</th>
+                            <th>Ticari Tür</th>
+                            <th>Başvuru Tarihi</th>
+                            <th>Durum</th>
+                            <th class="text-end pe-4">İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Örnek Satıcı 1 -->
+                        <tr>
+                            <td class="ps-4">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="shop-avatar">
+                                        <i class="bi bi-shop"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold text-dark">Moda Evi Butik A.Ş.</div>
+                                        <small class="text-muted">Vergi No: 1234567890</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="fw-medium">Ahmet Yılmaz</div>
+                                <small class="text-muted">ahmet@modaevi.com</small>
+                            </td>
+                            <td>Şahıs Şirketi</td>
+                            <td><small>20.04.2026<br>14:15</small></td>
+                            <td><span class="status-badge bg-warning-subtle text-warning border border-warning-subtle">Kuyrukta</span></td>
+                            <td class="text-end pe-4">
+                                <a href="admin_satici_onay_detay.html" class="btn btn-primary btn-sm px-3 shadow-sm" style="background:#2563eb; border:none;">
+                                    <i class="bi bi-file-earmark-person me-1"></i> Başvuruyu İncele
+                                </a>
+                            </td>
+                        </tr>
+
+                        <!-- Örnek Satıcı 2 -->
+                        <tr>
+                            <td class="ps-4">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="shop-avatar">
+                                        <i class="bi bi-shop"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold text-dark">Tekno Center Market</div>
+                                        <small class="text-muted">Vergi No: 9876543210</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="fw-medium">Ayşe Demir</div>
+                                <small class="text-muted">ayse@teknocenter.com</small>
+                            </td>
+                            <td>Limited Şirket</td>
+                            <td><small>20.04.2026<br>11:30</small></td>
+                            <td><span class="status-badge bg-warning-subtle text-warning border border-warning-subtle">İncelemede</span></td>
+                            <td class="text-end pe-4">
+                                <a href="admin_satici_onay_detay.html" class="btn btn-primary btn-sm px-3 shadow-sm" style="background:#2563eb; border:none;">
+                                    <i class="bi bi-file-earmark-person me-1"></i> Başvuruyu İncele
+                                </a>
+                            </td>
+                        </tr>
+
+                        <!-- Örnek Satıcı 3 -->
+                        <tr>
+                            <td class="ps-4">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="shop-avatar">
+                                        <i class="bi bi-shop"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold text-dark">Kitap Kurdu Mağazacılık</div>
+                                        <small class="text-muted">Vergi No: 5544332211</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="fw-medium">Caner Özcan</div>
+                                <small class="text-muted">caner@kitapkurdu.com</small>
+                            </td>
+                            <td>Anonim Şirket</td>
+                            <td><small>19.04.2026<br>16:45</small></td>
+                            <td><span class="status-badge bg-warning-subtle text-warning border border-warning-subtle">Kuyrukta</span></td>
+                            <td class="text-end pe-4">
+                                <a href="admin_satici_onay_detay.html" class="btn btn-primary btn-sm px-3 shadow-sm" style="background:#2563eb; border:none;">
+                                    <i class="bi bi-file-earmark-person me-1"></i> Başvuruyu İncele
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="p-4 border-top bg-light">
+                <nav class="d-flex justify-content-between align-items-center">
+                    <span class="text-muted small">Toplam 5 başvurudan 1-3 arası gösteriliyor</span>
+                    <ul class="pagination pagination-sm m-0">
+                        <li class="page-item disabled"><a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

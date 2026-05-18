@@ -1,0 +1,618 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+/* --- ORTAK DEİİÅKENLER (Renkler) --- */
+:root {
+    --navy: #1d2d44;
+    --gold: #d4af37;
+    --bg-color: #ffffff;
+    --soft-bg: #f7f8fa;
+    --text-color: #333333;
+    --border-color: #dddddd;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--text-color);
+    background-color: var(--soft-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================
+   HEADER (ÜST KISIM) VE NAVİGASYON CSS (YENİ)
+   ========================================= */
+
+.ky-header-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    font-family: inherit;
+}
+
+.ky-top-bg {
+    background-color: #fff;
+    width: 100%;
+}
+
+.ky-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 15px;
+}
+
+.flex-header {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.flex-header-bottom {
+    display: flex;
+    height: 40px;
+}
+
+/* LOGO SECTION */
+.ky-logo-card {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* İkon ile metin arasına daha fazla nefes payı */
+    padding-right: 20px; 
+    text-decoration: none;
+    z-index: 10;
+}
+
+.ky-logo-icon {
+    width: 44px;
+    height: 44px;
+    background-color: #1a2235; /* Navy */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* İkonun hafif öne çıkması için */
+}
+
+.ky-logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ky-title {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #1a2235;
+    letter-spacing: 0;
+    line-height: 1;
+    margin-bottom: 3px;
+}
+
+.ky-subtitle {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: #cca659; /* Gold */
+}
+
+/* TOP RIGHT KISMI */
+.ky-top-right {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 25px; /* Action butonları arası biraz daha açık */
+    padding-left: 20px; /* Doğrudan flex yapısına geçtiğimiz için küçük bir boşluk yeterli */
+    padding-right: 0;
+}
+
+/* ARAMA KUTUSU */
+.ky-search-box {
+    display: flex;
+    height: 38px;
+    flex: 1;
+    min-width: 200px;
+    max-width: 450px; /* En geniş ekranda aşırı büyümemesi için kısıt */
+    margin-right: auto; /* Arama kutusunu sola, butonları sağa akıtmak için kritik nokta */
+    border-radius: 6px;
+    /* overflow: hidden;  <-- BU SATIR DROPDOWN'I GİZLİYORDU, KALDIRILDI */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    border: 1px solid #e5e7eb;
+    position: relative;
+}
+
+.ky-search-box input {
+    flex: 1;
+    border: none;
+    padding: 0 18px;
+    outline: none;
+    font-size: 0.95rem;
+    color: #4b5563;
+}
+
+.ky-search-box button {
+    background-color: #cca659; /* Gold */
+    border: none;
+    color: #1a2436;
+    padding: 0 25px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+
+.ky-search-box button:hover {
+    background-color: #c4a552;
+}
+
+/* HIZLI LİNKLER */
+.ky-action-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.ky-btn-login {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #1a2436;
+    border-radius: 6px;
+    padding: 6px 14px;
+    color: #1a2436;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    background-color: transparent;
+}
+
+.ky-btn-login:hover {
+    background-color: #1a2436;
+    color: #fff;
+}
+
+.ky-btn-login i {
+    font-size: 1.1rem;
+}
+
+.ky-action-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #1a2436;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.ky-action-item:hover {
+    color: #cca659;
+}
+
+.ky-gold {
+    color: #cca659;
+    font-size: 1.1rem;
+}
+
+/* BOTTOM NAVBAR (Lacivert Kısım) */
+.ky-bottom-nav {
+    background-color: #152238; /* Navy */
+    height: 40px;
+    border-top: 2px solid #cca659;
+    border-bottom: 2px solid #0a1120;
+    /* Dekoratif Arka Plan (Herringbone-like) */
+    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 4px);
+}
+
+.ky-nav-links {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.ky-nav-item {
+    color: #cca659; /* Gold */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 15px;
+    transition: color 0.2s;
+}
+
+.ky-nav-item:hover {
+    color: #fff;
+}
+
+.ky-gold-icon {
+    font-size: 1.1rem;
+}
+
+.ky-nav-sep {
+    width: 1px;
+    height: 20px;
+    background-color: #cca659;
+    opacity: 0.4;
+}
+
+.ky-nav-star {
+    margin-left: auto;
+    color: #cca659;
+    font-size: 1.2rem;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 992px) {
+    .ky-logo-card {
+        position: static;
+        height: auto;
+        border-radius: 0;
+        border: none;
+        padding: 15px 20px;
+        justify-content: center;
+    }
+    .flex-header {
+        flex-direction: column;
+        height: auto;
+    }
+    .ky-top-right {
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 15px 20px;
+    }
+    .ky-search-box {
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 15px;
+    }
+
+    .ky-bottom-nav {
+        height: auto;
+    }
+    .flex-header-bottom {
+        height: auto;
+        padding: 10px 0;
+        overflow-x: auto;
+    }
+}
+/* =========================================
+   ANA ICERIK (HERO + KARTLAR)
+   ========================================= */
+
+main {
+    flex: 1;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #1d2d44 0%, #243b5a 65%, #2d4f78 100%);
+    margin: 1.5rem auto;
+    max-width: 1140px;
+    border-radius: 14px;
+    padding: 2.5rem;
+    color: #fff;
+    box-shadow: 0 12px 25px rgba(15, 23, 42, 0.15);
+}
+
+.hero-content {
+    max-width: 640px;
+}
+
+.hero-badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    letter-spacing: 0.7px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: rgba(212, 175, 55, 0.18);
+    color: #f8de82;
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    border-radius: 999px;
+    padding: 0.35rem 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content h1 {
+    margin: 0;
+    font-size: 1.9rem;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    margin: 1rem 0 1.5rem;
+    color: #dbe4ef;
+    line-height: 1.6;
+}
+
+.hero-button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 0.8rem 1.2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hero-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(212, 175, 55, 0.35);
+}
+
+.featured-section {
+    margin: 0 auto 2rem;
+    max-width: 1140px;
+    padding: 0 15px;
+}
+
+.section-header h2 {
+    color: var(--navy);
+    font-size: 1.5rem;
+    margin: 0 0 1rem;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.feature-card {
+    background-color: #fff;
+    border: 1px solid #e8ebef;
+    border-radius: 12px;
+    padding: 1.2rem;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.feature-card h3 {
+    color: var(--navy);
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+}
+
+.feature-card p {
+    margin: 0;
+    line-height: 1.5;
+    color: #4b5563;
+}
+
+/* =========================================
+   FOOTER (EN ALT KISIM) CSS
+   ========================================= */
+
+footer {
+    background-color: var(--navy);
+    color: white;
+    padding: 2rem 0;
+    margin-top: auto;
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/* Footer Logo Alanı */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.footer-logo-icon {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-logo-text {
+    display: flex;
+    flex-direction: column;
+}
+.footer-logo-text span:first-child {
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+.footer-logo-text span:last-child {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+/* Footer Bilgi Alanı (Hakkımızda vs.) */
+.footer-content {
+    flex: 2;
+    padding: 0 2rem;
+}
+
+.footer-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-content p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #d1d5db;
+}
+
+.footer-details {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.footer-links-group h4 {
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+    color: #f6f8fc;
+}
+
+.footer-links-group a,
+.footer-links-group span {
+    display: block;
+    font-size: 0.84rem;
+    color: #c8d1de;
+    line-height: 1.6;
+    text-decoration: none;
+}
+
+.footer-links-group a:hover {
+    color: var(--gold);
+}
+
+/* Footer Sosyal Medya İkonları */
+.footer-social {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.social-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--gold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.social-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: var(--navy);
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.social-icon[aria-label="X"] svg,
+.social-icon[aria-label="Facebook"] svg {
+    fill: var(--navy);
+    stroke: none;
+}
+
+.social-icon:hover {
+    transform: translateY(-2px);
+    background-color: #e4bf48;
+}
+
+/* =========================================
+   MOBIL UYUMLULUK
+   ========================================= */
+
+@media (max-width: 992px) {
+    .top-header {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .search-area {
+        order: 3;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .featured-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .footer-content {
+        padding: 0;
+    }
+
+    .footer-details {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-social {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 640px) {
+    .top-header {
+        padding: 1rem 4%;
+    }
+
+    .logo-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logo-text-title {
+        font-size: 1.2rem;
+    }
+
+    .header-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .nav-bar {
+        gap: 10px;
+        padding: 12px 6px;
+        flex-wrap: wrap;
+    }
+
+    .nav-separator {
+        display: none;
+    }
+
+    .hero-section {
+        margin: 1rem 4%;
+        padding: 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.6rem;
+    }
+
+    .featured-section {
+        margin: 0 4% 2rem;
+    }
+
+    .featured-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kral Yolu E-Ticaret - Sepetim</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Ortak Stiller -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <!-- Sepet Özel Stiller -->
+    <link rel="stylesheet" href="../../assets/css/sepet.css">
+</head>
+<body>
+
+    <!-- ============================================== -->
+    <!-- BAŞLANGIÇ: NAVBAR (PHP'DEN GELEN SABİT KISIM)  -->
+    <!-- ============================================== -->
+    <header class="ky-header-wrapper">
+        <div class="ky-top-bg">
+            <div class="ky-container flex-header">
+                <!-- LOGO -->
+                <a href="anasayfa.html" class="ky-logo-card">
+                    <div class="ky-logo-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="#d4af37" stroke="#d4af37" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 22l4-10 4 4 2-8 2 8 4-4 4 10z"/>
+                        </svg>
+                    </div>
+                    <div class="ky-logo-text">
+                        <span class="ky-title">KRAL YOLU</span>
+                        <span class="ky-subtitle">E-TİCARET</span>
+                    </div>
+                </a>
+                
+                <!-- TOP RIGHT -->
+                <div class="ky-top-right">
+                    <div class="ky-search-box">
+                        <input type="text" placeholder="Ürün, kategori veya marka ara...">
+                        <button type="button">Ara</button>
+                    </div>
+                    <div class="ky-action-links">
+                        <a href="profil.html" class="ky-action-item">
+                            <i class="bi bi-person-fill ky-gold"></i> <span class="d-none d-md-inline">Profilim</span>
+                        </a>
+                        <a href="favoriler.html" class="ky-action-item">
+                            <i class="bi bi-heart ky-gold"></i> <span class="d-none d-md-inline">Favoriler</span>
+                        </a>
+                        <a href="sepet.html" class="ky-action-item">
+                            <i class="bi bi-cart-fill ky-gold"></i> <span class="d-none d-md-inline">Sepetim</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ky-bottom-nav">
+            <div class="ky-container flex-header-bottom justify-content-center">
+                <nav class="ky-nav-links d-none d-lg-flex mx-auto">
+                    <a href="urunler.html" class="ky-nav-item">Kategoriler <i class="bi bi-chevron-down ms-1" style="font-size:0.8rem"></i></a>
+                    <div class="ky-nav-sep"></div>
+                    <a href="urunler.html" class="ky-nav-item"><i class="bi bi-gender-female ky-gold-icon"></i> Kadın Giyim</a>
+                    <div class="ky-nav-sep"></div>
+                    <a href="urunler.html" class="ky-nav-item"><i class="bi bi-gender-male ky-gold-icon"></i> Erkek Giyim</a>
+                    <div class="ky-nav-sep"></div>
+                    <a href="urunler.html" class="ky-nav-item"><i class="bi bi-emoji-smile ky-gold-icon"></i> Çocuk Giyim</a>
+                    <div class="ky-nav-sep"></div>
+                    <a href="urunler.html" class="ky-nav-item"><i class="bi bi-handbag ky-gold-icon"></i> Ayakkabı & Aksesuar</a>
+                </nav>
+            </div>      
+        </div>
+    </header>
+    <!-- BİTİŞ: NAVBAR -->
+
+    <!-- ============================================== -->
+    <!-- BAŞLANGIÇ: SEPET İÇERİĞİ                       -->
+    <!-- ============================================== -->
+    <main class="ky-container my-5" style="min-height: 55vh;">
+        
+        <!-- Breadcrumbs -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="anasayfa.html"><i class="bi bi-house"></i> Anasayfa</a></li>
+                <li class="breadcrumb-item active" aria-current="page" style="color:var(--navy); font-weight:700;">Sepetim</li>
+            </ol>
+        </nav>
+
+        <h1 class="fw-bold mb-4" style="color: var(--navy);">Sepetim <span class="fs-5 text-muted fw-normal">(2 Ürün)</span></h1>
+
+        <div class="row g-4">
+            
+            <!-- SOL TARAFI: SEPETTEKİ ÜRÜNLER LİSTESİ -->
+            <div class="col-lg-8">
+                
+                <!-- Sepet Item 1 -->
+                <div class="cart-item-card">
+                    <div class="row align-items-center">
+                        <div class="col-4 col-md-2 text-center text-md-start">
+                            <a href="urundetay.html"><img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=300&auto=format&fit=crop" class="cart-item-img" alt="Gömlek"></a>
+                        </div>
+                        <div class="col-8 col-md-5">
+                            <span class="cart-item-brand">MAVİ</span>
+                            <a href="urundetay.html" class="cart-item-title">Erkek Casual Açık Mavi Gömlek Slim Fit</a>
+                            <div class="cart-variant-text mt-2">Beden: <strong>L</strong> | Renk: <strong>Açık Mavi</strong></div>
+                            <div class="text-success mt-2" style="font-size:0.85rem; font-weight:600;"><i class="bi bi-truck"></i> Yarın Kargoda</div>
+                        </div>
+                        <div class="col-6 col-md-2 mt-4 mt-md-0 d-flex justify-content-start justify-content-md-center">
+                            <div class="cart-qty-wrapper">
+                                <button class="cart-qty-btn" onclick="updateQty(this, -1)">-</button>
+                                <input type="text" class="cart-qty-input" value="1" readonly>
+                                <button class="cart-qty-btn" onclick="updateQty(this, 1)">+</button>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 mt-4 mt-md-0 d-flex justify-content-end align-items-center gap-3">
+                            <div class="cart-item-price">950 TL</div>
+                            <button class="cart-btn-remove" title="Ürünü Sil"><i class="bi bi-trash3"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sepet Item 2 -->
+                <div class="cart-item-card">
+                    <div class="row align-items-center">
+                        <div class="col-4 col-md-2 text-center text-md-start">
+                            <a href="#"><img src="https://images.unsplash.com/photo-1542272201-b1ca555f8505?q=80&w=300&auto=format&fit=crop" class="cart-item-img" alt="Pantolon"></a>
+                        </div>
+                        <div class="col-8 col-md-5">
+                            <span class="cart-item-brand">COLİN'S</span>
+                            <a href="#" class="cart-item-title">Erkek Klasik Kesim Mavi Kot Pantolon</a>
+                            <div class="cart-variant-text mt-2">Beden: <strong>32/32</strong> | Renk: <strong>Denim Mavi</strong></div>
+                            <div class="text-success mt-2" style="font-size:0.85rem; font-weight:600;"><i class="bi bi-truck"></i> Yarın Kargoda</div>
+                        </div>
+                        <div class="col-6 col-md-2 mt-4 mt-md-0 d-flex justify-content-start justify-content-md-center">
+                            <div class="cart-qty-wrapper">
+                                <button class="cart-qty-btn" onclick="updateQty(this, -1)">-</button>
+                                <input type="text" class="cart-qty-input" value="1" readonly>
+                                <button class="cart-qty-btn" onclick="updateQty(this, 1)">+</button>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 mt-4 mt-md-0 d-flex justify-content-end align-items-center gap-3">
+                            <div class="cart-item-price">1.450 TL</div>
+                            <button class="cart-btn-remove" title="Ürünü Sil"><i class="bi bi-trash3"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SAĞ TARAFI: SİPARİŞ ÖZETİ -->
+            <div class="col-lg-4">
+                <div class="summary-card">
+                    <h2 class="summary-title">Sipariş Özeti</h2>
+                    
+                    <div class="summary-row">
+                        <span>Ürün Toplamı (2 Adet)</span>
+                        <span>2.400 TL</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Kargo Ücreti</span>
+                        <span>120 TL</span>
+                    </div>
+
+                    <div class="summary-row text-success">
+                        <span>1000 TL Üzeri Bedava Kargo</span>
+                        <span>-120 TL</span>
+                    </div>
+
+                    <div class="summary-row total-row">
+                        <span>Ödenecek Tutar</span>
+                        <span>2.400 TL</span>
+                    </div>
+
+                    <a href="odeme.html" class="btn-checkout text-decoration-none">
+                        Sepeti Onayla <i class="bi bi-chevron-right"></i>
+                    </a>
+
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <!-- BİTİŞ: SEPET İÇERİĞİ -->
+
+    <!-- ============================================== -->
+    <!-- BAŞLANGIÇ: FOOTER (PHP'DEN GELEN SABİT KISIM)  -->
+    <!-- ============================================== -->
+    <footer>
+        <div class="footer-logo">
+            <div class="footer-logo-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 22l4-10 4 4 2-8 2 8 4-4 4 10z"/>
+                </svg>
+            </div>
+            <div class="footer-logo-text">
+                <span>KRAL YOLU</span>
+                <span>E-TİCARET</span>
+            </div>
+        </div>
+        
+        <div class="footer-content">
+            <h3>Hakkımızda</h3>
+            <p>Müşterilerimize en kaliteli ürünleri, en hızlı ve güvenilir şekilde sunmayı hedefleyen Türkiye'nin yükselen e-ticaret platformuyuz.</p>
+            <div class="footer-details">
+                <div class="footer-links-group">
+                    <h4>Kurumsal</h4>
+                    <a href="#">Hakkımızda</a>
+                    <a href="#">İletişim</a>
+                    <a href="#">Kariyer</a>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Yardım</h4>
+                    <a href="#">Sıkça Sorulan Sorular</a>
+                    <a href="#">İade Politikası</a>
+                    <a href="#">Kargo Takip</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- BİTİŞ: FOOTER -->
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Miktar Arttırma Fonksiyonu -->
+    <script>
+        function updateQty(btn, change) {
+            // Find the input field relative to the clicked button
+            const wrapper = btn.parentElement;
+            const input = wrapper.querySelector('.cart-qty-input');
+            let val = parseInt(input.value) + change;
+            if(val < 1) val = 1; // Minimum 1 ürün olmalı
+            input.value = val;
+            
+            // Gerçek bir senaryoda burada AJAX ile veritabanına anlık istek gönderilip fiyat güncellenir.
+        }
+    </script>
+    <script src="../../assets/js/app.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,195 @@
+﻿/* =========================================
+   SEPET ÖZEL STİLLERİ (sepet.css)
+   ========================================= */
+
+.cart-item-card {
+    border: 1px solid #edf0f5;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: #fff;
+    transition: box-shadow 0.2s;
+}
+
+.cart-item-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.cart-item-img {
+    width: 100%;
+    max-width: 120px;
+    border-radius: 8px;
+    object-fit: contain;
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+}
+
+.cart-item-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.cart-item-title:hover {
+    color: var(--gold);
+}
+
+.cart-item-brand {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.cart-variant-text {
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.cart-qty-wrapper {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cart-qty-btn {
+    background: #f8fafc;
+    border: none;
+    width: 35px;
+    height: 35px;
+    font-weight: 700;
+    color: var(--navy);
+    transition: background 0.2s;
+}
+
+.cart-qty-btn:hover {
+    background: #e2e8f0;
+}
+
+.cart-qty-input {
+    width: 40px;
+    height: 35px;
+    border: none;
+    border-inline: 1px solid #e2e8f0;
+    text-align: center;
+    font-weight: 600;
+    color: var(--navy);
+    outline: none;
+}
+
+.cart-item-price {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--navy);
+}
+
+.cart-btn-remove {
+    background: none;
+    border: none;
+    color: #ef4444;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding: 5px;
+}
+
+.cart-btn-remove:hover {
+    transform: scale(1.1);
+}
+
+/* Sağ Taraf - Sipariş Özeti */
+.summary-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 25px;
+    position: sticky;
+    top: 20px;
+}
+
+.summary-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #475569;
+    font-weight: 500;
+}
+
+.summary-row.total-row {
+    border-top: 2px dashed #cbd5e1;
+    padding-top: 15px;
+    margin-top: 15px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--navy);
+}
+
+.btn-checkout {
+    background-color: var(--gold);
+    color: var(--navy);
+    border: none;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: all 0.2s;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-checkout:hover {
+    background-color: #cca659;
+    color: #1a2436;
+}
+
+.coupon-box {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.coupon-box input {
+    flex-grow: 1;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 8px 12px;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.coupon-box input:focus {
+    border-color: var(--gold);
+}
+
+.coupon-box button {
+    background: var(--navy);
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.coupon-box button:hover {
+    opacity: 0.9;
+}
+

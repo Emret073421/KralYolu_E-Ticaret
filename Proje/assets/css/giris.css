@@ -1,0 +1,140 @@
+﻿/* =========================================
+   GİRİÅ / KAYIT ÖZEL STİLLERİ (giris.css)
+   ========================================= */
+
+#auth-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background-color: #f8fafc;
+    min-height: 60vh;
+}
+
+.auth-card {
+    background: #fff;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    padding: 40px;
+    border: 1px solid #edf0f5;
+}
+
+.auth-card h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Uyarı Mesajları (JS ile Gösterilen) */
+.alert {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: center;
+    display: none; /* Varsayılan olarak gizli */
+}
+
+/* Kullanıcının JS kodu "mesajGoster" fonksiyonunda style ayarlarını kendi de basabilir ama biz temiz CSS bırakıyoruz */
+.alert-success-custom {
+    background-color: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+    display: block !important;
+}
+
+.alert-danger-custom {
+    background-color: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    display: block !important;
+}
+
+/* Form Elemanları */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--navy);
+    background-color: #f8fafc;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.form-group input:focus {
+    border-color: var(--gold);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+}
+
+/* Buton Grubu */
+.button-group {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-pill {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px; /* Oval köşeler Kral Yolu temasında 8px kullanıldı */
+    font-weight: 800;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: var(--navy);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-pill:hover {
+    background-color: #152238;
+}
+
+/* Kayıt ol gibi yan / ikincil butonlar */
+.btn-pill[type="button"] {
+    background-color: #f1f5f9;
+    color: var(--navy);
+    border: 1px solid #e2e8f0;
+}
+
+.btn-pill[type="button"]:hover {
+    background-color: #e2e8f0;
+}
+
+/* Özel Gold Buton */
+.btn-gold {
+    background-color: var(--gold) !important;
+    color: var(--navy) !important;
+    border: none !important;
+}
+
+.btn-gold:hover {
+    background-color: #cca659 !important;
+}
+

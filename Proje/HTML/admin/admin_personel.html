@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kral Yolu - Personel ve Yetki Yönetimi</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Ortak Stiller -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/admin_panel.css">
+
+    <style>
+        .personnel-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+        .personnel-avatar {
+            width: 45px;
+            height: 45px;
+            background: #f1f5f9;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #64748b;
+        }
+        .role-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .role-admin { background: #fee2e2; color: #dc2626; }
+        .role-moderator { background: #fef3c7; color: #d97706; }
+        .role-support { background: #dcfce7; color: #16a34a; }
+    </style>
+</head>
+<body>
+
+    <!-- SOL SİDEBAR (MENÜ) -->
+    <aside class="admin-sidebar">
+        <div class="admin-brand">
+            <i class="bi bi-shield-lock-fill"></i>
+            <div class="admin-brand-texts">
+                <h4>KRAL YOLU</h4>
+                <small>YÖNETİM PANELİ</small>
+            </div>
+        </div>
+        
+        <ul class="admin-nav">
+            <li>
+                <a href="admin_panel.html"><i class="bi bi-speedometer2"></i> Sistem Özeti</a>
+            </li>
+            
+            <li class="nav-section-title">E-Ticaret Yönetimi</li>
+            <li>
+                <a href="admin_urun_onay.html"><i class="bi bi-bag-check-fill"></i> Ürün Onayları <span class="badge bg-danger ms-auto rounded-pill">12</span></a>
+            </li>
+            <li>
+                <a href="admin_kategoriler.html"><i class="bi bi-tags-fill"></i> Kategori İşlemleri</a>
+            </li>
+            
+            <li class="nav-section-title">Kullanıcı & Ağ</li>
+            <li>
+                <a href="admin_satici_onay.html"><i class="bi bi-shop-window"></i> Satıcı / Mağaza Onayları <span class="badge bg-warning text-dark ms-auto rounded-pill">5</span></a>
+            </li>
+            <li>
+                <a href="admin_personel.html" class="active"><i class="bi bi-person-badge-fill"></i> Personel Ekleme / Yetki</a>
+            </li>
+            
+            <li class="nav-section-title">Sistem & Analiz</li>
+            <li>
+                <a href="#"><i class="bi bi-bar-chart-line-fill"></i> Gelişmiş Raporlama</a>
+            </li>
+            <li>
+                <a href="../../index.php"><i class="bi bi-door-open text-danger"></i> Güvenli Çıkış</a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- SAĞ ANA İÇERİK -->
+    <main class="admin-main">
+        
+        <!-- Üst Başlık -->
+        <header class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+            <div>
+                <h2 class="m-0 fw-bold" style="color:#0f172a;">Personel ve Yetki Yönetimi</h2>
+                <span class="text-muted" style="font-size:0.9rem;">Sistem yöneticilerini ve personelleri yönetin, yetki seviyelerini belirleyin.</span>
+            </div>
+            <div>
+                <button class="btn btn-primary px-4 fw-bold shadow-sm" data-bs-toggle="modal" data-bs-target="#addPersonnelModal">
+                    <i class="bi bi-person-plus-fill me-2"></i> Yeni Personel Ekle
+                </button>
+            </div>
+        </header>
+
+        <!-- Personel Tablosu -->
+        <div class="personnel-card shadow-sm">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0 align-middle">
+                    <thead class="bg-light">
+                        <tr>
+                            <th class="ps-4">Personel Bilgisi</th>
+                            <th>ID No</th>
+                            <th>E-Posta / Telefon</th>
+                            <th>Yetki Seviyesi</th>
+                            <th>Kayıt Tarihi</th>
+                            <th class="text-end pe-4">İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Örnek Personel 1 -->
+                        <tr>
+                            <td class="ps-4">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="personnel-avatar">
+                                        <i class="bi bi-person-fill-lock"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold text-dark">Emre Tuncer</div>
+                                        <small class="text-muted">Süper Yetkili</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><code class="text-primary fw-bold">PR-001</code></td>
+                            <td>
+                                <div class="small">admin1@gmail.com</div>
+                                <div class="text-muted small">0532 000 00 00</div>
+                            </td>
+                            <td><span class="role-badge role-admin">Yönetici</span></td>
+                            <td><small>24.03.2026</small></td>
+                            <td class="text-end pe-4">
+                                <button class="btn btn-outline-secondary btn-sm me-1"><i class="bi bi-pencil-square"></i></button>
+                                <button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <!-- Örnek Personel 2 -->
+                        <tr>
+                            <td class="ps-4">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="personnel-avatar">
+                                        <i class="bi bi-person-fill-gear"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold text-dark">Ahmet Yılmaz</div>
+                                        <small class="text-muted">Kategori Sorumlusu</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><code class="text-primary fw-bold">PR-002</code></td>
+                            <td>
+                                <div class="small">ahmet@kralyolu.com</div>
+                                <div class="text-muted small">0555 111 22 33</div>
+                            </td>
+                            <td><span class="role-badge role-moderator">Moderator</span></td>
+                            <td><small>10.04.2026</small></td>
+                            <td class="text-end pe-4">
+                                <button class="btn btn-outline-secondary btn-sm me-1"><i class="bi bi-pencil-square"></i></button>
+                                <button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <!-- Örnek Personel 3 -->
+                        <tr>
+                            <td class="ps-4">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="personnel-avatar">
+                                        <i class="bi bi-person-fill"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold text-dark">Zeynep Kaya</div>
+                                        <small class="text-muted">Destek Ekibi</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><code class="text-primary fw-bold">PR-003</code></td>
+                            <td>
+                                <div class="small">zeynep@kralyolu.com</div>
+                                <div class="text-muted small">0544 222 33 44</div>
+                            </td>
+                            <td><span class="role-badge role-support">Destek</span></td>
+                            <td><small>15.04.2026</small></td>
+                            <td class="text-end pe-4">
+                                <button class="btn btn-outline-secondary btn-sm me-1"><i class="bi bi-pencil-square"></i></button>
+                                <button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Personel Ekleme Modalı -->
+    <div class="modal fade" id="addPersonnelModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title fw-bold">Sisteme Yeni Personel Ekle</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="personnelForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small">Adı</label>
+                                <input type="text" class="form-control" name="ad" required placeholder="Örn: Ahmet">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small">Soyadı</label>
+                                <input type="text" class="form-control" name="soyad" required placeholder="Örn: Yılmaz">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small">E-Posta Adresi</label>
+                                <input type="email" class="form-control" name="e_posta" required placeholder="personel@kralyolu.com">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small">Telefon</label>
+                                <input type="tel" class="form-control" name="telefon" placeholder="05XX XXX XX XX">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small">Giriş Parolası</label>
+                                <input type="password" class="form-control" name="parola" required placeholder="******">
+                                <small class="text-muted" style="font-size:0.7rem;">Personel daha sonra kendi şifresini değiştirebilir.</small>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small">Yetki Rolü</label>
+                                <select class="form-select" name="rol" required>
+                                    <option value="">Seçiniz...</option>
+                                    <option value="Yönetici">Yönetici (Tam Yetki)</option>
+                                    <option value="Moderator">Moderator (Kategori/Ürün Yönetimi)</option>
+                                    <option value="Destek">Destek (Müşteri/Satici Destek)</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-bold small">Personel ID (Opsiyonel)</label>
+                                <input type="text" class="form-control" name="personel_ID" placeholder="Örn: PR-010">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-outline-secondary fw-bold" data-bs-dismiss="modal">İptal</button>
+                    <button type="submit" form="personnelForm" class="btn btn-primary fw-bold px-4">Personeli Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

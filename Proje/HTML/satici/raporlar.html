@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kral Yolu E-Ticaret - Satış Raporları</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Ortak Stiller ve Satıcı Stilleri -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/satici_panel.css">
+
+    <style>
+        .report-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .report-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+        .icon-blue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+        .icon-gold { background: rgba(212, 175, 55, 0.1); color: var(--gold); }
+        .icon-green { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+        
+        .report-value {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin: 0;
+        }
+        .report-title {
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        
+        .nav-pills .nav-link {
+            color: #64748b;
+            font-weight: 700;
+            border-radius: 8px;
+            padding: 10px 20px;
+        }
+        .nav-pills .nav-link.active {
+            background-color: var(--navy);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SOL SİDEBAR (MENÜ) -->
+    <aside class="seller-sidebar">
+        <div class="seller-brand">
+            <i class="bi bi-shop"></i>
+            <div class="seller-brand-texts">
+                <h4>KRAL YOLU</h4>
+                <small>Satıcı Portalı</small>
+            </div>
+        </div>
+        
+        <ul class="seller-nav">
+            <li>
+                <a href="satici_panel.html"><i class="bi bi-grid-1x2-fill"></i> Kontrol Paneli</a>
+            </li>
+            
+            <li class="nav-section-title">Ürün Yönetimi</li>
+            <li>
+                <a href="mevcut_urunler.html"><i class="bi bi-box-seam"></i> Mevcut Ürünlerim</a>
+            </li>
+            <li>
+                <a href="yeni_urun_ekle.html"><i class="bi bi-plus-circle-fill"></i> Yeni Ürün Ekle</a>
+            </li>
+            
+            <li class="nav-section-title">Satış & Operasyon</li>
+            <li>
+                <a href="siparisler.html"><i class="bi bi-cart-check-fill"></i> Gelen Siparişler <span class="badge bg-danger ms-auto rounded-pill">3</span></a>
+            </li>
+            <li>
+                <a href="raporlar.html" class="active"><i class="bi bi-bar-chart-line-fill"></i> Satış Raporları</a>
+            </li>
+            
+            <li class="nav-section-title">Mağaza Yönetimi</li>
+            <li>
+                <a href="magaza_ayarlari.html"><i class="bi bi-gear-fill"></i> Mağaza Ayarları</a>
+            </li>
+            <li>
+                <a href="../../index.php"><i class="bi bi-door-open text-danger"></i> Güvenli Çıkış</a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- SAĞ ANA İÇERİK -->
+    <main class="seller-main">
+        
+        <!-- Üst Başlık -->
+        <header class="seller-header">
+            <div>
+                <h2 class="m-0 fw-bold" style="color:var(--navy);">Finans ve Satış Raporları</h2>
+                <span class="text-muted" style="font-size:0.9rem;">Mağazanızın dönemsel satış verilerini ve performansını analiz edin.</span>
+            </div>
+        </header>
+
+        <!-- Filtreleme Sekmeleri (Aylık / Yıllık) -->
+        <div class="bg-white p-3 rounded-3 shadow-sm border border-light mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <ul class="nav nav-pills" id="reportTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="aylik-tab" data-bs-toggle="pill" data-bs-target="#aylik-rapor" type="button" role="tab">Aylık Görünüm</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="yillik-tab" data-bs-toggle="pill" data-bs-target="#yillik-rapor" type="button" role="tab">Yıllık Görünüm</button>
+                </li>
+            </ul>
+            
+            <button class="btn btn-outline-secondary fw-bold bg-light"><i class="bi bi-download text-primary me-1"></i> Excel Olarak İndir</button>
+        </div>
+
+        <div class="tab-content" id="reportTabsContent">
+            
+            <!-- AYLIK RAPOR SEKMESİ -->
+            <div class="tab-pane fade show active" id="aylik-rapor" role="tabpanel">
+                
+                <div class="d-flex gap-3 mb-4 w-50">
+                    <select class="form-select fw-bold border-secondary shadow-sm">
+                        <option value="1">Ocak</option>
+                        <option value="2">Şubat</option>
+                        <option value="3" selected>Mart</option>
+                        <option value="4">Nisan</option>
+                    </select>
+                    <select class="form-select fw-bold border-secondary shadow-sm">
+                        <option value="2026" selected>2026</option>
+                        <option value="2025">2025</option>
+                    </select>
+                </div>
+
+                <!-- Aylık Özet Kartları -->
+                <div class="row g-4 mb-4">
+                    <div class="col-md-4">
+                        <div class="report-card">
+                            <div class="report-icon icon-blue"><i class="bi bi-wallet2"></i></div>
+                            <div>
+                                <div class="report-title">Mart Ayı Toplam Ciro</div>
+                                <h3 class="report-value">145.200 ₺</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="report-card">
+                            <div class="report-icon icon-gold"><i class="bi bi-box-seam"></i></div>
+                            <div>
+                                <div class="report-title">Mart Ayı Satılan Ürün</div>
+                                <h3 class="report-value">32 Adet</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="report-card">
+                            <div class="report-icon icon-green"><i class="bi bi-cart-check"></i></div>
+                            <div>
+                                <div class="report-title">Teslim Edilmiş Sipariş</div>
+                                <h3 class="report-value">28 Adet</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aylık Detay Tablosu -->
+                <div class="bg-white p-4 rounded-3 shadow-sm border border-light">
+                    <h5 class="fw-bold mb-4" style="color:var(--navy);">Mart Ayı Satış Özeti</h5>
+                    <div class="table-responsive">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr>
+                                    <th>Tarih</th>
+                                    <th>Ürün Adı</th>
+                                    <th>Adet</th>
+                                    <th>Birim Fiyat</th>
+                                    <th>Toplam Tutar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-muted">16 Mart 2026</td>
+                                    <td class="fw-bold text-dark">Oyuncu Dizüstü Bilgisayarı (RTX)</td>
+                                    <td>1</td>
+                                    <td>35.000 ₺</td>
+                                    <td class="fw-bold text-success">35.000 ₺</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">18 Mart 2026</td>
+                                    <td class="fw-bold text-dark">Dune (Çöl Gezegeni) Kitap</td>
+                                    <td>3</td>
+                                    <td>120 ₺</td>
+                                    <td class="fw-bold text-success">360 ₺</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">22 Mart 2026</td>
+                                    <td class="fw-bold text-dark">iPhone 15 Pro Max 256GB</td>
+                                    <td>1</td>
+                                    <td>82.999 ₺</td>
+                                    <td class="fw-bold text-success">82.999 ₺</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- YILLIK RAPOR SEKMESİ -->
+            <div class="tab-pane fade" id="yillik-rapor" role="tabpanel">
+                
+                <div class="d-flex gap-3 mb-4 w-25">
+                    <select class="form-select fw-bold border-secondary shadow-sm">
+                        <option value="2026" selected>2026 Yılı</option>
+                        <option value="2025">2025 Yılı</option>
+                    </select>
+                </div>
+
+                <!-- Yıllık Özet Kartları -->
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6">
+                        <div class="report-card" style="border-left: 4px solid #3b82f6;">
+                            <div class="report-icon icon-blue"><i class="bi bi-graph-up-arrow"></i></div>
+                            <div>
+                                <div class="report-title">Yıllık Toplam Hasılat</div>
+                                <h3 class="report-value">1.485.000 ₺</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="report-card" style="border-left: 4px solid var(--gold);">
+                            <div class="report-icon icon-gold"><i class="bi bi-award"></i></div>
+                            <div>
+                                <div class="report-title">Yılın En Çok Satılanı</div>
+                                <h3 class="report-value" style="font-size:1.2rem; margin-top:5px;">iPhone 15 Pro Max (145 Adet)</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yıllık Detay Tablosu (Aylara Göre) -->
+                <div class="bg-white p-4 rounded-3 shadow-sm border border-light">
+                    <h5 class="fw-bold mb-4" style="color:var(--navy);">2026 Yılı Aylık Ciro Dağılımı</h5>
+                    <div class="table-responsive">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr>
+                                    <th>Ay</th>
+                                    <th>Tamamlanan Sipariş</th>
+                                    <th>Satılan Ürün (Adet)</th>
+                                    <th>Aylık Ciro</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="fw-bold" style="color:var(--navy);">Ocak</td>
+                                    <td>120</td>
+                                    <td>185</td>
+                                    <td class="fw-bold text-success">420.500 ₺</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold" style="color:var(--navy);">Şubat</td>
+                                    <td>95</td>
+                                    <td>140</td>
+                                    <td class="fw-bold text-success">310.200 ₺</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold" style="color:var(--navy);">Mart</td>
+                                    <td>32</td>
+                                    <td>50</td>
+                                    <td class="fw-bold text-success">145.200 ₺</td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td class="text-muted">Nisan</td>
+                                    <td class="text-muted">-</td>
+                                    <td class="text-muted">-</td>
+                                    <td class="text-muted">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

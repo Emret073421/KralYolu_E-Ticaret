@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kral Yolu E-Ticaret - Mağaza Ayarları</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Ortak Stiller ve Satıcı Stilleri -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/satici_panel.css">
+
+    <style>
+        .form-label {
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 0.9rem;
+        }
+        .form-control, .form-select {
+            border: 1px solid #cbd5e1;
+            padding: 10px 15px;
+            border-radius: 8px;
+        }
+        .form-control:focus, .form-select:focus {
+            box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+            border-color: var(--gold);
+        }
+        .setting-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 25px;
+        }
+        .setting-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .setting-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-size: 1.3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SOL SİDEBAR (MENÜ) -->
+    <aside class="seller-sidebar">
+        <div class="seller-brand">
+            <i class="bi bi-shop"></i>
+            <div class="seller-brand-texts">
+                <h4>KRAL YOLU</h4>
+                <small>Satıcı Portalı</small>
+            </div>
+        </div>
+        
+        <ul class="seller-nav">
+            <li>
+                <a href="satici_panel.html"><i class="bi bi-grid-1x2-fill"></i> Kontrol Paneli</a>
+            </li>
+            
+            <li class="nav-section-title">Ürün Yönetimi</li>
+            <li>
+                <a href="mevcut_urunler.html"><i class="bi bi-box-seam"></i> Mevcut Ürünlerim</a>
+            </li>
+            <li>
+                <a href="yeni_urun_ekle.html"><i class="bi bi-plus-circle-fill"></i> Yeni Ürün Ekle</a>
+            </li>
+            
+            <li class="nav-section-title">Satış & Operasyon</li>
+            <li>
+                <a href="siparisler.html"><i class="bi bi-cart-check-fill"></i> Gelen Siparişler <span class="badge bg-danger ms-auto rounded-pill">3</span></a>
+            </li>
+            <li>
+                <a href="raporlar.html"><i class="bi bi-bar-chart-line-fill"></i> Satış Raporları</a>
+            </li>
+            
+            <li class="nav-section-title">Mağaza Yönetimi</li>
+            <li>
+                <a href="magaza_ayarlari.html" class="active"><i class="bi bi-gear-fill"></i> Mağaza Ayarları</a>
+            </li>
+            <li>
+                <a href="../../index.php"><i class="bi bi-door-open text-danger"></i> Güvenli Çıkış</a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- SAĞ ANA İÇERİK -->
+    <main class="seller-main">
+        
+        <!-- Üst Başlık -->
+        <header class="seller-header">
+            <div>
+                <h2 class="m-0 fw-bold" style="color:var(--navy);">Mağaza ve Profil Ayarları</h2>
+                <span class="text-muted" style="font-size:0.9rem;">Temas ve güvenlik bilgilerinizi güncel tutarak müşterilerinize güven verin.</span>
+            </div>
+        </header>
+
+        <form action="#" method="POST">
+            <div class="row g-4">
+                
+                <!-- SOL SÜTUN (Temel Bilgiler & Adres) -->
+                <div class="col-lg-8">
+                    
+                    <!-- Mağaza Profil Bilgileri -->
+                    <div class="setting-section">
+                        <div class="setting-header">
+                            <div class="setting-icon"><i class="bi bi-building"></i></div>
+                            <div>
+                                <h5 class="fw-bold m-0" style="color:var(--navy);">Kurumsal Profil Bilgileri</h5>
+                                <small class="text-muted">Mağazanızın sitede görünen adı ve resmi ticari bilgileriniz.</small>
+                            </div>
+                        </div>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Mağaza Adı (Görünen)</label>
+                                <input type="text" class="form-control fw-bold" value="Tekno Bilişim A.Ş.">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Ticari Ünvan (Resmi)</label>
+                                <input type="text" class="form-control" value="Tekno Bilişim Pazarlama San. ve Tic. Ltd. Şti.">
+                            </div>
+                            
+                            <div class="col-md-6 mt-3">
+                                <label class="form-label">Şirket Türü</label>
+                                <select class="form-select">
+                                    <option>Şahıs Şirketi</option>
+                                    <option selected>Limited Şirket (Ltd. Şti.)</option>
+                                    <option>Anonim Şirket (A.Ş.)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mt-3">
+                                <label class="form-label">Vergi Dairesi / No</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control w-50" value="Bornova V.D.">
+                                    <input type="text" class="form-control w-50" value="9876543210">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mt-3">
+                                <label class="form-label">Mersis No</label>
+                                <input type="text" class="form-control" value="0123456789012345">
+                            </div>
+                            <div class="col-md-6 mt-3">
+                                <label class="form-label">KEP Adresi</label>
+                                <input type="text" class="form-control" value="teknobilisim@hs01.kep.tr">
+                            </div>
+
+                            <div class="col-md-6 mt-4">
+                                <label class="form-label">Yetkili Ad Soyad</label>
+                                <input type="text" class="form-control" value="Mehmet Demir">
+                            </div>
+                            <div class="col-md-6 mt-4">
+                                <label class="form-label">Kurumsal Telefon</label>
+                                <input type="text" class="form-control" value="0850 111 22 33">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Finansal Bilgiler (Banka) -->
+                    <div class="setting-section">
+                        <div class="setting-header">
+                            <div class="setting-icon"><i class="bi bi-bank"></i></div>
+                            <div>
+                                <h5 class="fw-bold m-0" style="color:var(--navy);">Banka ve Ödeme Bilgileri</h5>
+                                <small class="text-muted">Hakediş ödemelerinizin yatırılacağı IBAN adresi.</small>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="form-label">IBAN Numarası</label>
+                                <input type="text" class="form-control fw-bold" value="TR00 0000 0000 0000 0000 0000 00">
+                                <small class="text-muted">Lütfen TR ile başlayan 26 haneli IBAN'ınızı boşluklu veya boşluksuz giriniz.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mağaza Fiziksel Adres -->
+                    <div class="setting-section">
+                        <div class="setting-header">
+                            <div class="setting-icon"><i class="bi bi-geo-alt"></i></div>
+                            <div>
+                                <h5 class="fw-bold m-0" style="color:var(--navy);">Fiziksel Mağaza / Depo Adresi</h5>
+                                <small class="text-muted">Müşteri iadelerinin gönderileceği resmi yasal adresiniz.</small>
+                            </div>
+                        </div>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label class="form-label">Şehir (İl)</label>
+                                <select class="form-select">
+                                    <option value="İzmir" selected>İzmir</option>
+                                    <option value="İstanbul">İstanbul</option>
+                                    <option value="Ankara">Ankara</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">İlçe</label>
+                                <input type="text" class="form-control" value="Bornova">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Mahalle</label>
+                                <input type="text" class="form-control" value="Kazımdirik Mah.">
+                            </div>
+                            <div class="col-12 mt-3">
+                                <label class="form-label">Açık Adres / Sokak / Kapı No</label>
+                                <textarea class="form-control" rows="3">Üniversite Cad. No:3 Tekno Plaza Kat:2</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- SAĞ SÜTUN (Güvenlik) -->
+                <div class="col-lg-4">
+                    
+                    <div class="setting-section">
+                        <div class="setting-header">
+                            <div class="setting-icon"><i class="bi bi-shield-lock"></i></div>
+                            <div>
+                                <h5 class="fw-bold m-0" style="color:var(--navy);">Güvenlik</h5>
+                                <small class="text-muted">Parola işlemleri</small>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-warning border-0 small px-3 py-2" role="alert">
+                            <i class="bi bi-info-circle-fill me-1"></i> Şifrenizi değiştirmek istemiyorsanız bu alanları boş bırakın.
+                        </div>
+
+                        <div class="mb-3 mt-4">
+                            <label class="form-label">Mevcut Şifreniz</label>
+                            <input type="password" class="form-control" placeholder="Kimlik doğrulaması için...">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Yeni Şifreniz</label>
+                            <input type="password" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Yeni Şifreniz (Tekrar)</label>
+                            <input type="password" class="form-control">
+                        </div>
+                    </div>
+
+                    <!-- Kaydet Butonu Kutusu -->
+                    <div class="setting-section text-center p-4">
+                        <p class="text-muted small mb-3">Yaptığınız değişikliklerin sisteme yansıması için ayarları kaydetmeniz gerekmektedir.</p>
+                        <button type="submit" class="btn btn-primary w-100 fw-bold py-2 fs-6" style="background-color: var(--navy); border-color: var(--navy);">
+                            <i class="bi bi-floppy me-1"></i> Ayarları Kaydet
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

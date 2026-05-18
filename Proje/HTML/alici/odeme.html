@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kral Yolu E-Ticaret - Güvenli Ödeme</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Ortak Stiller -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <!-- Ödeme Özel Stiller -->
+    <link rel="stylesheet" href="../../assets/css/odeme.css">
+</head>
+<body style="background-color: #f8fafc;">
+
+    <!-- BASİTLEŞTİRİLMİŞ CHECKOUT HEADER -->
+    <header class="ky-header-wrapper" style="box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+        <div class="ky-top-bg">
+            <div class="ky-container flex-header justify-content-center py-3">
+                <!-- LOGO SADECE -->
+                <a href="anasayfa.html" class="ky-logo-card">
+                    <div class="ky-logo-icon">
+                        <svg width="35" height="35" viewBox="0 0 24 24" fill="#d4af37" stroke="#d4af37" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 22l4-10 4 4 2-8 2 8 4-4 4 10z"/>
+                        </svg>
+                    </div>
+                    <div class="ky-logo-text">
+                        <span class="ky-title fs-4">KRAL YOLU</span>
+                        <span class="ky-subtitle fs-6" style="letter-spacing: 4px;">GÜVENLİ ÖDEME</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ÖDEME ADIMLARI İÇERİĞİ -->
+    <main class="ky-container my-5" style="min-height: 60vh;">
+        
+        <div class="row g-4">
+            
+            <!-- SOL TARAFI: ADRES VE ÖDEME FORMLARI -->
+            <div class="col-lg-8">
+                
+                <!-- ADIM 1: TESLİMAT ADRESİ -->
+                <div class="checkout-step-card">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <h2 class="step-title">Teslimat Adresi</h2>
+                    </div>
+                    
+                    <div class="row g-3">
+                        <!-- Kayıtlı Adres 1 (Seçili) -->
+                        <div class="col-md-6">
+                            <div class="address-select-box active" onclick="selectAddress(this)">
+                                <div class="address-title">
+                                    <span><i class="bi bi-house-door-fill text-muted me-1"></i> Ev Adresi</span>
+                                    <i class="bi bi-check-circle-fill text-success" style="font-size: 1.1rem;"></i>
+                                </div>
+                                <div class="address-detail mt-2">
+                                    <strong>Emre Tuncer</strong><br>
+                                    Kadıköy Merkez Mah. Moda Cad. No:3 Daire:15<br>
+                                    Kadıköy / İSTANBUL<br>
+                                    0555 123 45 67
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kayıtlı Adres 2 -->
+                        <div class="col-md-6">
+                            <div class="address-select-box" onclick="selectAddress(this)">
+                                <div class="address-title">
+                                    <span><i class="bi bi-building text-muted me-1"></i> İş Adresi</span>
+                                </div>
+                                <div class="address-detail mt-2">
+                                    <strong>Emre Tuncer</strong><br>
+                                    Mecidiyeköy Mah. Büyükdere Cad. Kral Plaza Kat:5<br>
+                                    Şişli / İSTANBUL<br>
+                                    0555 123 45 67
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-outline-secondary mt-3 d-flex align-items-center gap-2" style="font-weight:600;"><i class="bi bi-plus-circle"></i> Yeni Adres Ekle</button>
+                </div>
+
+                <!-- ADIM 2: ÖDEME BİLGİLERİ -->
+                <div class="checkout-step-card">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <h2 class="step-title">Ödeme Yöntemi</h2>
+                    </div>
+                    
+                    <select class="saved-cards-dropdown" onchange="fillCardDetails(this.value)">
+                        <option value="">Kayıtlı Kartlarımdan Seçin...</option>
+                        <option value="1">GARANTİ BBVA - 5342 **** **** 1983</option>
+                    </select>
+
+                    <h5 class="fw-bold mb-3" style="color:var(--navy);">Banka veya Kredi Kartı</h5>
+                    
+                    <div class="cc-wrapper">
+                        <div class="row">
+                            <div class="col-12 cc-form-group">
+                                <label class="cc-label">Kart Üzerindeki İsim</label>
+                                <input type="text" class="cc-input" id="cc-name" placeholder="AD SOYAD">
+                            </div>
+                            <div class="col-12 cc-form-group">
+                                <label class="cc-label">Kart Numarası</label>
+                                <div class="position-relative">
+                                    <input type="text" class="cc-input" id="cc-number" placeholder="0000 0000 0000 0000" maxlength="19">
+                                    <i class="bi bi-credit-card-2-front position-absolute" style="right: 15px; top: 12px; font-size: 1.2rem; color: #94a3b8;"></i>
+                                </div>
+                            </div>
+                            <div class="col-6 cc-form-group">
+                                <label class="cc-label">Son Kullanma Tarihi</label>
+                                <input type="text" class="cc-input" id="cc-exp" placeholder="AA / YY" maxlength="5">
+                            </div>
+                            <div class="col-6 cc-form-group">
+                                <label class="cc-label">CVV / CVC</label>
+                                <input type="password" class="cc-input" id="cc-cvv" placeholder="•••" maxlength="3">
+                            </div>
+                        </div>
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="checkbox" id="saveCard" checked style="accent-color: var(--gold);">
+                            <label class="form-check-label fw-bold text-muted" for="saveCard" style="font-size:0.9rem;">
+                                Ödeme İşleminden Sonra Bu Kartı Profilime Kaydet
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SAĞ TARAFI: SİPARİŞ ÖZETİ (SEPETTEKİ GİBİ AMA BUTON FARKLI) -->
+            <div class="col-lg-4">
+                <div class="summary-card">
+                    <h2 class="summary-title">Sipariş Özeti</h2>
+                    
+                    <div class="summary-row">
+                        <span>Ürün Toplamı (2 Adet)</span>
+                        <span>2.400 TL</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Kargo Ücreti</span>
+                        <span>120 TL</span>
+                    </div>
+
+                    <div class="summary-row text-success">
+                        <span>Ücretsiz Kargo</span>
+                        <span>-120 TL</span>
+                    </div>
+
+                    <div class="summary-row total-row">
+                        <span>Ödenecek Tutar</span>
+                        <span>2.400 TL</span>
+                    </div>
+
+                    <!-- Sözleşme Onayları -->
+                    <div class="mt-4 mb-3">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="chk2" checked style="accent-color: var(--gold);">
+                            <label class="form-check-label text-muted" for="chk2" style="font-size:0.8rem;">
+                                <a href="#" class="text-primary text-decoration-none">Mesafeli Satış Sözleşmesi</a>'ni ve <a href="#" class="text-primary text-decoration-none">Ön Bilgilendirme Formu</a>'nu okudum, onaylıyorum.
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="btn-pay" onclick="simuleEtVeTamamla(this)">
+                        <i class="bi bi-lock-fill"></i> Siparişi Onayla
+                    </button>
+
+                    <div class="secure-badge">
+                        <i class="bi bi-shield-lock-fill text-success fs-5"></i> 256-Bit SSL Güvenli Ödeme
+                    </div>
+                    <div class="text-center mt-3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/200px-PayPal.svg.png" style="height: 15px; filter: grayscale(1); opacity:0.6; margin:0 5px;" alt="">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mastercard_2019_logo.svg/200px-Mastercard_2019_logo.svg.png" style="height: 18px; filter: grayscale(1); opacity:0.6; margin:0 5px;" alt="">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" style="height: 12px; filter: grayscale(1); opacity:0.6; margin:0 5px;" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER KISMIDA SADELEŞTİRİLİR ÖDEME EKRANLARINDA -->
+    <footer style="background-color: #f1f5f9; padding: 20px 0; border-top: 1px solid #e2e8f0; text-align:center;">
+        <div class="ky-container">
+            <span class="text-muted fw-bold" style="font-size:0.9rem;">&copy; 2026 Kral Yolu E-Ticaret - Tüm Hakları Saklıdır.</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Adres Seçimi Fonksiyonu
+        function selectAddress(element) {
+            // Remove checkmarks and active classes from all
+            document.querySelectorAll('.address-select-box').forEach(box => {
+                box.classList.remove('active');
+                const title = box.querySelector('.address-title');
+                if(title.querySelector('.bi-check-circle-fill')) {
+                    title.querySelector('.bi-check-circle-fill').remove();
+                }
+            });
+
+            // Add to selected
+            element.classList.add('active');
+            const titleRow = element.querySelector('.address-title');
+            titleRow.innerHTML += '<i class="bi bi-check-circle-fill text-success" style="font-size: 1.1rem;"></i>';
+        }
+
+        // Kayıtlı Kart Seçimi
+        function fillCardDetails(val) {
+            if(val === '1') {
+                document.getElementById('cc-name').value = 'EMRE TUNCER';
+                document.getElementById('cc-number').value = '5342 0000 0000 1983';
+                document.getElementById('cc-exp').value = '12/28';
+                document.getElementById('cc-cvv').focus(); // Cvv istenir
+            } else {
+                document.getElementById('cc-name').value = '';
+                document.getElementById('cc-number').value = '';
+                document.getElementById('cc-exp').value = '';
+                document.getElementById('cc-cvv').value = '';
+            }
+        }
+
+        // Ödeme Simülasyonu
+        function simuleEtVeTamamla(btn) {
+            if(!document.getElementById('chk2').checked) {
+                alert("Lütfen Sözleşmeleri Onaylayın.");
+                return;
+            }
+            
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> İşleniyor...';
+            btn.style.opacity = '0.8';
+            btn.style.pointerEvents = 'none';
+
+            // 2 Saniyelik sahte ödeme beklemesi
+            setTimeout(() => {
+                document.querySelector('main').innerHTML = `
+                <div class="text-center py-5">
+                    <i class="bi bi-patch-check-fill text-success" style="font-size: 6rem;"></i>
+                    <h1 class="fw-bold mt-4" style="color:var(--navy);">Siparişiniz Alındı!</h1>
+                    <p class="fs-5 text-muted mt-2">Ödemeniz başarıyla gerçekleşti. Bizi tercih ettiğiniz için teşekkür ederiz.</p>
+                    <div class="mt-4">
+                        <strong class="d-block" style="font-size: 1.2rem; color:var(--navy);">Sipariş Numaranız: #KRY-10928475</strong>
+                        <p class="text-muted mt-2">Sipariş detaylarınızı profilinizden güncel olarak takip edebilirsiniz.</p>
+                    </div>
+                    <a href="profil.html" class="btn btn-outline-primary fw-bold mt-4 px-4 py-2" style="border-color:var(--navy); color:var(--navy);">Siparişimi Takip Et</a>
+                    <a href="anasayfa.html" class="btn fw-bold mt-4 ms-2 px-4 py-2" style="background-color:var(--gold); color:var(--navy);">Alışverişe Devam</a>
+                </div>
+                `;
+            }, 2000);
+        }
+
+        // Kredi Kartı Formatlama (Boşluk bırakma)
+        document.getElementById('cc-number').addEventListener('input', function (e) {
+            e.target.value = e.target.value.replace(/[^\d]/g, '').replace(/(.{4})/g, '$1 ').trim();
+        });
+        document.getElementById('cc-exp').addEventListener('input', function (e) {
+            let v = e.target.value.replace(/[^\d]/g, '');
+            if(v.length >= 2) {
+                e.target.value = v.substring(0,2) + '/' + v.substring(2,4);
+            } else {
+                e.target.value = v;
+            }
+        });
+    </script>
+    <script src="../../assets/js/app.js"></script>
+</body>
+</html>
+
+

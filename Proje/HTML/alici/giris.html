@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kral Yolu E-Ticaret - Giriş Yap veya Üye Ol</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Ortak Stiller -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <!-- Giriş Özel Stiller -->
+    <link rel="stylesheet" href="../../assets/css/giris.css">
+</head>
+<body>
+
+    <!-- ============================================== -->
+    <!-- BAŞLANGIÇ: NAVBAR (PHP'DEN GELEN SABİT KISIM)  -->
+    <!-- ============================================== -->
+    <header class="ky-header-wrapper">
+        <div class="ky-top-bg">
+            <div class="ky-container flex-header">
+                <!-- LOGO -->
+                <a href="anasayfa.html" class="ky-logo-card">
+                    <div class="ky-logo-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="#d4af37" stroke="#d4af37" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 22l4-10 4 4 2-8 2 8 4-4 4 10z"/>
+                        </svg>
+                    </div>
+                    <div class="ky-logo-text">
+                        <span class="ky-title">KRAL YOLU</span>
+                        <span class="ky-subtitle">E-TİCARET</span>
+                    </div>
+                </a>
+                
+                <!-- TOP RIGHT -->
+                <div class="ky-top-right">
+                    <div class="ky-search-box">
+                        <input type="text" placeholder="Ürün, kategori veya marka ara...">
+                        <button type="button">Ara</button>
+                    </div>
+                    <div class="ky-action-links">
+                        <a href="giris.html" class="ky-action-item">
+                            <i class="bi bi-person-fill ky-gold"></i> <span class="d-none d-md-inline">Giriş Yap</span>
+                        </a>
+                        <a href="favoriler.html" class="ky-action-item">
+                            <i class="bi bi-heart ky-gold"></i> <span class="d-none d-md-inline">Favoriler</span>
+                        </a>
+                        <a href="sepet.html" class="ky-action-item">
+                            <i class="bi bi-cart-fill ky-gold"></i> <span class="d-none d-md-inline">Sepetim</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ky-bottom-nav">
+            <div class="ky-container flex-header-bottom justify-content-center">
+                <nav class="ky-nav-links d-none d-lg-flex mx-auto">
+                    <a href="urunler.html" class="ky-nav-item">Kategoriler <i class="bi bi-chevron-down ms-1" style="font-size:0.8rem"></i></a>
+                    <div class="ky-nav-sep"></div>
+                    <a href="urunler.html" class="ky-nav-item"><i class="bi bi-gender-female ky-gold-icon"></i> Kadın Giyim</a>
+                    <div class="ky-nav-sep"></div>
+                    <a href="urunler.html" class="ky-nav-item"><i class="bi bi-gender-male ky-gold-icon"></i> Erkek Giyim</a>
+                    <div class="ky-nav-sep"></div>
+                    <a href="urunler.html" class="ky-nav-item"><i class="bi bi-emoji-smile ky-gold-icon"></i> Çocuk Giyim</a>
+                    <div class="ky-nav-sep"></div>
+                    <a href="urunler.html" class="ky-nav-item"><i class="bi bi-handbag ky-gold-icon"></i> Ayakkabı & Aksesuar</a>
+                </nav>
+            </div>      
+        </div>
+    </header>
+    <!-- BİTİŞ: NAVBAR -->
+
+    <!-- ============================================== -->
+    <!-- BAŞLANGIÇ: KULLANICI GİRİŞ/KAYIT FORMLARI      -->
+    <!-- ============================================== -->
+    <main class="ky-container">
+
+        <!-- KULLANICININ ORİJİNAL KODUNA SADIK KALINAN ALAN -->
+        <div id="auth-section" class="section">
+            <div class="auth-card">
+                <!-- Login View -->
+                <div id="login-view">
+                    <h2>Giriş yap veya üye ol</h2>
+                    <div id="login-alert" class="alert"></div>
+                    <form id="login-form" method="POST">
+                        <div class="form-group">
+                            <label>E-Posta</label>
+                            <input type="email" name="eposta" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Şifre</label>
+                            <input type="password" name="sifre" required>
+                        </div>
+                        <div class="button-group">
+                            <button type="submit" class="btn-pill">Giriş</button>
+                            <button type="button" class="btn-pill" onclick="formGorunumunuDegistir('kayit')">Kayıt Ol</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Register View -->
+                <div id="register-view" style="display: none;">
+                    <h2>Yeni Üye Kaydı</h2>
+                    <div id="register-alert" class="alert"></div>
+                    <form id="register-form" method="POST">
+                        <div class="form-group">
+                            <label>E-Posta</label>
+                            <input type="email" name="eposta" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Şifre</label>
+                            <input type="password" name="sifre" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Şifre Tekrar</label>
+                            <input type="password" name="sifre_tekrar" required>
+                        </div>
+                        <div class="button-group">
+                            <button type="submit" class="btn-pill">Kayıt Ol</button>
+                            <button type="button" class="btn-pill btn-gold" onclick="formGorunumunuDegistir('giris')">Geri Dön</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- BİTİŞ KULLANICI KODU -->
+
+    </main>
+
+    <!-- ============================================== -->
+    <!-- BAŞLANGIÇ: FOOTER (PHP'DEN GELEN SABİT KISIM)  -->
+    <!-- ============================================== -->
+    <footer>
+        <div class="footer-logo">
+            <div class="footer-logo-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 22l4-10 4 4 2-8 2 8 4-4 4 10z"/>
+                </svg>
+            </div>
+            <div class="footer-logo-text">
+                <span>KRAL YOLU</span>
+                <span>E-TİCARET</span>
+            </div>
+        </div>
+        
+        <div class="footer-content">
+            <h3>Hakkımızda</h3>
+            <p>Müşterilerimize en kaliteli ürünleri, en hızlı ve güvenilir şekilde sunmayı hedefleyen Türkiye'nin yükselen e-ticaret platformuyuz.</p>
+            <div class="footer-details">
+                <div class="footer-links-group">
+                    <h4>Kurumsal</h4>
+                    <a href="#">Hakkımızda</a>
+                    <a href="#">İletişim</a>
+                    <a href="#">Kariyer</a>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Yardım</h4>
+                    <a href="#">Sıkça Sorulan Sorular</a>
+                    <a href="#">İade Politikası</a>
+                    <a href="#">Kargo Takip</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- BİTİŞ: FOOTER -->
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Kullanıcının İstemci Tarafı Form Logiği ve Görseller -->
+    <script>
+        // KULLANICININ İSTEDİĞİ GEÇİŞ FONKSİYONU
+        function formGorunumunuDegistir(gorunum) {
+            const loginView = document.getElementById('login-view');
+            const registerView = document.getElementById('register-view');
+            
+            // Animatif geçiş (Hafif saydamlık efekti)
+            if(gorunum === 'kayit') {
+                loginView.style.display = 'none';
+                registerView.style.display = 'block';
+                registerView.style.opacity = '0';
+                setTimeout(() => registerView.style.opacity = '1', 50);
+            } else {
+                registerView.style.display = 'none';
+                loginView.style.display = 'block';
+                loginView.style.opacity = '0';
+                setTimeout(() => loginView.style.opacity = '1', 50);
+            }
+            
+            // Ortada kalan uyarıları temizle
+            document.getElementById('login-alert').style.display = 'none';
+            document.getElementById('register-alert').style.display = 'none';
+        }
+
+        // KULLANICININ ORİJİNAL JS FONKSİYONLARI YARDIMCILARI (Fake classickAjax / mesajGoster simülasyonu)
+        function mesajGoster(id, basariliMi, mesaj) {
+            const alertBox = document.getElementById(id);
+            alertBox.className = 'alert'; // Formatla
+            alertBox.classList.add(basariliMi ? 'alert-success-custom' : 'alert-danger-custom');
+            alertBox.innerText = mesaj;
+        }
+
+        // Fake sunucu cevabı (Tasarım testi için)
+        function classickAjax(veri, callback) {
+            console.log("Sunucuya giden:", veri);
+            setTimeout(() => {
+                // Şifre boşsa vb basit hata döndürüp CSS testi yapabilmeniz için
+                if(veri.includes("sifre=&")) {
+                    callback({ basarili: false, mesaj: "Lütfen bilgilerinizi eksiksiz girin!" });
+                } else {
+                    callback({ basarili: true, mesaj: "İşlem başarıyla tamamlandı, yönlendiriliyorsunuz..." });
+                }
+            }, 800);
+        }
+
+        // ====================================================================
+        // GİRİŞ YAP FORMU (EN BASİT AJAX İLETİŞİMİ)
+        // ====================================================================
+        var girisFormu = document.getElementById('login-form');
+        if (girisFormu) {
+            girisFormu.addEventListener('submit', function(olay) {
+                
+                // 1. Sayfanın Form Yüzünden Yenilenmesini Engelle
+                olay.preventDefault(); 
+                
+                // 2. Kutuların içindeki yazıları al
+                var mail = olay.target.eposta.value;
+                var sifreMetni = olay.target.sifre.value;
+                
+                // 3. W3Schools stili URL parametreleri oluştur (Örn: "islem=giris_yap&eposta=a@a.com")
+                var gidenMetin = "islem=giris_yap&eposta=" + encodeURIComponent(mail) + "&sifre=" + encodeURIComponent(sifreMetni);
+                
+                // 4. Arka Plana Gönder ve Cevap Geldiğinde çalışacak kodu (Callback) yaz
+                classickAjax(gidenMetin, function(phpCevabi) {
+                    
+                    // 5. Ekrana Çıkan Uyarı: Gelen cevaba göre yeşil veya kırmızı uyarıyı göster
+                    if (phpCevabi.basarili === true) {
+                        mesajGoster('login-alert', true, phpCevabi.mesaj); // Yeşil kutu
+                        setTimeout(function() { window.location.href="profil.html"; }, 1000); // 1 Saniye sonra yönlendir (Tasarım olarak)
+                    } else {
+                        mesajGoster('login-alert', false, phpCevabi.mesaj); // Hatalıysa kırmızı kutu
+                    }
+                    
+                });
+            });
+        }
+
+        // ====================================================================
+        // KAYIT OL FORMU
+        // ====================================================================
+        var kayitForm = document.getElementById('register-form');
+        if (kayitForm) {
+            kayitForm.addEventListener('submit', function(olay) {
+                olay.preventDefault();
+                
+                var mailMetin = olay.target.eposta.value;
+                var girilenSifre = olay.target.sifre.value;
+                var tekrarSifre = olay.target.sifre_tekrar.value;
+                
+                if (girilenSifre !== tekrarSifre) { 
+                    mesajGoster('register-alert', false, "Şifreler birbirine uymuyor, tekrar deneyin."); 
+                    return; 
+                }
+                
+                // Arka plana yollanacak URL zincirini yap
+                var gidenMetin = "islem=kayit_ol" + 
+                                "&eposta=" + encodeURIComponent(mailMetin) +
+                                "&sifre=" + encodeURIComponent(girilenSifre);
+                
+                // AJAX Gönder
+                classickAjax(gidenMetin, function(cevap) {
+                    // Gelen cevabı ekrana yansıt
+                    mesajGoster('register-alert', cevap.basarili, cevap.mesaj);
+                    
+                    if (cevap.basarili === true) {
+                        kayitForm.reset();
+                        // 1 Saniye sonra Giriş ekranına atsın
+                        setTimeout(() => formGorunumunuDegistir('giris'), 1500);
+                    }
+                });
+            });
+        }
+    </script>
+    <script src="../../assets/js/app.js"></script>
+</body>
+</html>
+
+

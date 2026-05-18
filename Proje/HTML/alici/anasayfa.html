@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kral Yolu E-Ticaret - Anasayfa Tasarımı</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Ortak Stiller (Önceden var olan) -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    
+    <!-- ANASAYFA ÖZEL STİLLERİ -->
+    <link rel="stylesheet" href="../../assets/css/anasayfa.css">
+</head>
+<body>
+
+    <!-- ============================================== -->
+    <!-- BAŞLANGIÇ: NAVBAR (PHP'DEN GELEN SABİT KISIM)  -->
+    <!-- Bu kısmı PHP'ye alırken navbar.php include edilecek -->
+    <!-- ============================================== -->
+    <header class="ky-header-wrapper">
+        <div class="ky-top-bg">
+            <div class="ky-container flex-header">
+                <!-- LOGO -->
+                <a href="#" class="ky-logo-card">
+                    <div class="ky-logo-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="#d4af37" stroke="#d4af37" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 22l4-10 4 4 2-8 2 8 4-4 4 10z"/>
+                        </svg>
+                    </div>
+                    <div class="ky-logo-text">
+                        <span class="ky-title">KRAL YOLU</span>
+                        <span class="ky-subtitle">E-TİCARET</span>
+                    </div>
+                </a>
+                
+                <!-- TOP RIGHT -->
+                <div class="ky-top-right">
+                    <div class="ky-search-box">
+                        <input type="text" placeholder="Ürün, kategori veya marka ara...">
+                        <button type="button">Ara</button>
+                    </div>
+                    <div class="ky-action-links">
+                        <a href="profil.html" class="ky-action-item">
+                            <i class="bi bi-person-fill ky-gold"></i> <span class="d-none d-md-inline">Giriş Yap</span>
+                        </a>
+                        <a href="favoriler.html" class="ky-action-item">
+                            <i class="bi bi-heart-fill ky-gold"></i> <span class="d-none d-md-inline">Favoriler</span>
+                        </a>
+                        <a href="sepet.html" class="ky-action-item">
+                            <i class="bi bi-cart-fill ky-gold"></i> <span class="d-none d-md-inline">Sepetim</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ky-bottom-nav">
+            <div class="ky-container flex-header-bottom justify-content-center">
+                <nav class="ky-nav-links d-none d-lg-flex mx-auto">
+                    <a href="urunler.html" class="ky-nav-item">Kategoriler <i class="bi bi-chevron-down ms-1" style="font-size:0.8rem"></i></a>
+                    <div class="ky-nav-sep"></div>
+                    <a href="urunler.html" class="ky-nav-item"><i class="bi bi-gender-female ky-gold-icon"></i> Kadın Giyim</a>
+                    <div class="ky-nav-sep"></div>
+                    <a href="urunler.html" class="ky-nav-item"><i class="bi bi-gender-male ky-gold-icon"></i> Erkek Giyim</a>
+                    <div class="ky-nav-sep"></div>
+                    <a href="urunler.html" class="ky-nav-item"><i class="bi bi-emoji-smile ky-gold-icon"></i> Çocuk Giyim</a>
+                    <div class="ky-nav-sep"></div>
+                    <a href="urunler.html" class="ky-nav-item"><i class="bi bi-handbag ky-gold-icon"></i> Ayakkabı & Aksesuar</a>
+                </nav>
+            </div>      
+        </div>
+    </header>
+    <!-- BİTİŞ: NAVBAR -->
+
+
+    <!-- ============================================== -->
+    <!-- BAŞLANGIÇ: DİNAMİK ANASAYFA İÇERİĞİ            -->
+    <!-- PHP'deki <main> içine aktarılacak kısımlar      -->
+    <!-- ============================================== -->
+    <main>
+        
+        <!-- 1. HERO SLIDER ALANI -->
+        <section class="hero-slider-section ky-container d-flex justify-content-center">
+            <div id="mainHeroCarousel" class="carousel slide hero-carousel-item w-100" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#mainHeroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#mainHeroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop" class="d-block w-100 hero-img" alt="Giyim İndirim">
+                        <div class="hero-overlay">
+                            <div class="hero-content-box">
+                                <span class="hero-tag">Yeni Sezon</span>
+                                <h2 class="hero-title">Bahar Kreasyonunda %50 İndirim</h2>
+                                <p class="hero-desc">En tarz giyim ürünleri ve elbiselerde kaçırılmayacak fırsatlar seni bekliyor. Tarzını yenile!</p>
+                                <a href="#" class="hero-btn">Alışverişe Başla <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?q=80&w=2070&auto=format&fit=crop" class="d-block w-100 hero-img" alt="Erkek Giyim">
+                        <div class="hero-overlay">
+                            <div class="hero-content-box">
+                                <span class="hero-tag">Erkek Giyim Özel</span>
+                                <h2 class="hero-title">Tarzını Yansıtacak Erkek Serisi</h2>
+                                <p class="hero-desc">İş hayatından özel davetlere uzanan modern ve şık kombinleri şimdi keşfet.</p>
+                                <a href="#" class="hero-btn">Ürünleri İncele <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#mainHeroCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Önceki</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#mainHeroCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Sonraki</span>
+                </button>
+            </div>
+        </section>
+        <!-- BİTİŞ: HERO SLIDER ALANI -->
+
+        <!-- 2. KATEGORİ VİTRİNİ -->
+        <section class="category-showcase ky-container">
+            <div class="section-title-wrap d-flex justify-content-center position-relative">
+                <h3 class="section-title text-center mx-auto">Giyim Kategorilerimiz</h3>
+                <a href="#" class="view-all-link position-absolute end-0 d-none d-sm-block">Tümünü Gör <i class="bi bi-chevron-right"></i></a>
+            </div>
+            
+            <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-4 justify-content-center">
+                <!-- Kategori 1 -->
+                <div class="col">
+                    <a href="urunler.html" class="cat-item">
+                        <div class="cat-icon-wrap"><i class="bi bi-gender-female"></i></div>
+                        <span class="cat-name">Kadın Giyim</span>
+                    </a>
+                </div>
+                <!-- Kategori 2 -->
+                <div class="col">
+                    <a href="urunler.html" class="cat-item">
+                        <div class="cat-icon-wrap"><i class="bi bi-gender-male"></i></div>
+                        <span class="cat-name">Erkek Giyim</span>
+                    </a>
+                </div>
+                <!-- Kategori 3 -->
+                <div class="col">
+                    <a href="urunler.html" class="cat-item">
+                        <div class="cat-icon-wrap"><i class="bi bi-emoji-smile"></i></div>
+                        <span class="cat-name">Çocuk Giyim</span>
+                    </a>
+                </div>
+                <!-- Kategori 4 -->
+                <div class="col">
+                    <a href="urunler.html" class="cat-item">
+                        <div class="cat-icon-wrap"><i class="bi bi-person-arms-up"></i></div>
+                        <span class="cat-name">Bebek Giyim</span>
+                    </a>
+                </div>
+                <!-- Kategori 5 -->
+                <div class="col">
+                    <a href="urunler.html" class="cat-item">
+                        <div class="cat-icon-wrap"><i class="bi bi-handbag"></i></div>
+                        <span class="cat-name">Çanta & Aksesuar</span>
+                    </a>
+                </div>
+                <!-- Kategori 6 -->
+                <div class="col">
+                    <a href="urunler.html" class="cat-item">
+                        <div class="cat-icon-wrap"><i class="bi bi-smartwatch"></i></div>
+                        <span class="cat-name">Saat & Takı</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- BİTİŞ: KATEGORİ VİTRİNİ -->
+
+        <!-- 3. ERKEK GİYİM VİTRİNİ -->
+        <section class="product-slider ky-container">
+            <div class="section-title-wrap d-flex justify-content-center position-relative">
+                <h3 class="section-title text-center mx-auto">Erkek Giyim Kombinleri</h3>
+                <a href="#" class="view-all-link position-absolute end-0 d-none d-sm-block">Tüm Erkek Giyim <i class="bi bi-chevron-right"></i></a>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 mx-auto justify-content-center">
+                <!-- Ürün Kartı 1 -->
+                <div class="col">
+                    <div class="product-card">
+                        <button class="product-fav-btn"><i class="bi bi-heart"></i></button>
+                        <div class="product-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=2000&auto=format&fit=crop" style="border-radius:6px;" alt="Ürün">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Mavi</span>
+                            <a href="#" class="product-title">Erkek Casual Açık Mavi Gömlek Slim Fit</a>
+                            <div class="product-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <span class="rating-count">(124)</span>
+                            </div>
+                            <div class="product-price-row">
+                                <div class="price-box">
+                                    <span class="old-price">1.200 TL</span>
+                                    <span class="current-price">950 TL</span>
+                                </div>
+                                <a href="urundetay.html" class="btn fw-bold px-3 py-2 text-decoration-none" style="background-color: var(--gold); border:none; color: var(--navy); border-radius:8px; font-size:0.85rem; display:flex; align-items:center;">Ürüne Git</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ürün Kartı 2 -->
+                <div class="col">
+                    <div class="product-card">
+                        <button class="product-fav-btn"><i class="bi bi-heart"></i></button>
+                        <div class="product-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=2000&auto=format&fit=crop" style="border-radius:6px;" alt="Ürün">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Colin's</span>
+                            <a href="#" class="product-title">Slim Fit Erkek Siyah Kot Pantolon Jean</a>
+                            <div class="product-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <span class="rating-count">(890)</span>
+                            </div>
+                            <div class="product-price-row">
+                                <div class="price-box">
+                                    <span class="current-price">799 TL</span>
+                                </div>
+                                <a href="urundetay.html" class="btn fw-bold px-3 py-2 text-decoration-none" style="background-color: var(--gold); border:none; color: var(--navy); border-radius:8px; font-size:0.85rem; display:flex; align-items:center;">Ürüne Git</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ürün Kartı 3 -->
+                <div class="col">
+                    <div class="product-card">
+                        <button class="product-fav-btn"><i class="bi bi-heart"></i></button>
+                        <div class="product-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1593030761757-71fae46af505?q=80&w=2000&auto=format&fit=crop" style="border-radius:6px;" alt="Ürün">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Kiğılı</span>
+                            <a href="#" class="product-title">Klasik Kesim Erkek Lacivert Takım Elbise</a>
+                            <div class="product-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star"></i>
+                                <span class="rating-count">(45)</span>
+                            </div>
+                            <div class="product-price-row">
+                                <div class="price-box">
+                                    <span class="current-price">4.500 TL</span>
+                                </div>
+                                <a href="urundetay.html" class="btn fw-bold px-3 py-2 text-decoration-none" style="background-color: var(--gold); border:none; color: var(--navy); border-radius:8px; font-size:0.85rem; display:flex; align-items:center;">Ürüne Git</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ürün Kartı 4 -->
+                <div class="col">
+                    <div class="product-card">
+                        <button class="product-fav-btn"><i class="bi bi-heart"></i></button>
+                        <div class="product-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1516826957135-700ede19c6ce?q=80&w=2000&auto=format&fit=crop" style="border-radius:6px;" alt="Ürün">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Zara</span>
+                            <a href="#" class="product-title">Oversize Kesim Erkek Kapüşonlu Sweatshirt</a>
+                            <div class="product-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <span class="rating-count">(320)</span>
+                            </div>
+                            <div class="product-price-row">
+                                <div class="price-box">
+                                    <span class="current-price">650 TL</span>
+                                </div>
+                                <a href="urundetay.html" class="btn fw-bold px-3 py-2 text-decoration-none" style="background-color: var(--gold); border:none; color: var(--navy); border-radius:8px; font-size:0.85rem; display:flex; align-items:center;">Ürüne Git</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- BİTİŞ: GÜNÜN FIRSATLARI -->
+
+    
+
+        <!-- 5. KADIN GİYİM VİTRİNİ -->
+        <section class="product-slider ky-container mb-5">
+            <div class="section-title-wrap d-flex justify-content-center position-relative">
+                <h3 class="section-title text-center mx-auto">Kadın Giyim Öne Çıkanlar</h3>
+                <a href="#" class="view-all-link position-absolute end-0 d-none d-sm-block">Tüm Kadın Giyim <i class="bi bi-chevron-right"></i></a>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 mx-auto justify-content-center">
+                <!-- Ürün Kartı 1 -->
+                <div class="col">
+                    <div class="product-card">
+                        <button class="product-fav-btn"><i class="bi bi-heart"></i></button>
+                        <div class="product-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=2000&auto=format&fit=crop" alt="Ürün" style="border-radius:6px;">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Mango</span>
+                            <a href="#" class="product-title">Kadın Beyaz İpeksi Yazlık V Yaka Bluz</a>
+                            <div class="product-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <span class="rating-count">(88)</span>
+                            </div>
+                            <div class="product-price-row">
+                                <div class="price-box">
+                                    <span class="current-price">450 TL</span>
+                                </div>
+                                <button class="add-to-cart-btn">
+                                    <i class="bi bi-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Kart 2 -->
+                <div class="col">
+                    <div class="product-card">
+                        <button class="product-fav-btn"><i class="bi bi-heart"></i></button>
+                        <div class="product-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?q=80&w=2000&auto=format&fit=crop" alt="Ürün" style="border-radius:6px;">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Zara</span>
+                            <a href="#" class="product-title">Kadın Uzun Desenli Yazlık Elbise Modeli</a>
+                            <div class="product-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <span class="rating-count">(410)</span>
+                            </div>
+                            <div class="product-price-row">
+                                <div class="price-box">
+                                    <span class="old-price">1.800 TL</span>
+                                    <span class="current-price">1.530 TL</span>
+                                </div>
+                                <button class="add-to-cart-btn">
+                                    <i class="bi bi-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Kart 3 -->
+                <div class="col">
+                    <div class="product-card">
+                        <button class="product-fav-btn"><i class="bi bi-heart"></i></button>
+                        <div class="product-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1550614000-4b95d0339d1b?q=80&w=2000&auto=format&fit=crop" alt="Ürün" style="border-radius:6px;">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Network</span>
+                            <a href="#" class="product-title">Kadın İş Hayatı Şık Kumaş Ceket</a>
+                            <div class="product-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star"></i>
+                                <span class="rating-count">(56)</span>
+                            </div>
+                            <div class="product-price-row">
+                                <div class="price-box">
+                                    <span class="current-price">2.299 TL</span>
+                                </div>
+                                <button class="add-to-cart-btn">
+                                    <i class="bi bi-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Kart 4 -->
+                <div class="col">
+                    <div class="product-card">
+                        <button class="product-fav-btn"><i class="bi bi-heart"></i></button>
+                        <div class="product-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1551163943-3f6a855d1153?q=80&w=2000&auto=format&fit=crop" alt="Ürün" style="border-radius:6px;">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-brand">Koton</span>
+                            <a href="#" class="product-title">Kadın Kahverengi Sonbahar Trençkot Mont</a>
+                            <div class="product-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <span class="rating-count">(94)</span>
+                            </div>
+                            <div class="product-price-row">
+                                <div class="price-box">
+                                    <span class="current-price">1.299 TL</span>
+                                </div>
+                                <button class="add-to-cart-btn">
+                                    <i class="bi bi-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- BİTİŞ: ÇOK SATANLAR -->
+
+        <!-- 6. MARKA VİTRİNİ -->
+        <section class="ky-container">
+            <div class="brand-showcase">
+                <div class="row row-cols-3 row-cols-md-6 g-2 text-center align-items-center justify-content-center">
+                    <div class="col"><div class="brand-item"><h4>NIKE</h4></div></div>
+                    <div class="col"><div class="brand-item"><h4>ZARA</h4></div></div>
+                    <div class="col"><div class="brand-item"><h4>MANGO</h4></div></div>
+                    <div class="col"><div class="brand-item"><h4>MAVİ</h4></div></div>
+                    <div class="col"><div class="brand-item"><h4>KOTON</h4></div></div>
+                    <div class="col"><div class="brand-item"><h4>LCW</h4></div></div>
+                </div>
+            </div>
+        </section>
+        <!-- BİTİŞ: MARKA VİTRİNİ -->
+
+    </main>
+
+
+    <!-- ============================================== -->
+    <!-- BAŞLANGIÇ: FOOTER (PHP'DEN GELEN SABİT KISIM)  -->
+    <!-- ============================================== -->
+    <footer>
+        <div class="footer-logo">
+            <div class="footer-logo-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 22l4-10 4 4 2-8 2 8 4-4 4 10z"/>
+                </svg>
+            </div>
+            <div class="footer-logo-text">
+                <span>KRAL YOLU</span>
+                <span>E-TİCARET</span>
+            </div>
+        </div>
+        
+        <div class="footer-content">
+            <h3>Hakkımızda</h3>
+            <p>Müşterilerimize en kaliteli ürünleri, en hızlı ve güvenilir şekilde sunmayı hedefleyen Türkiye'nin yükselen e-ticaret platformuyuz.</p>
+            <div class="footer-details">
+                <div class="footer-links-group">
+                    <h4>Kurumsal</h4>
+                    <a href="#">Hakkımızda</a>
+                    <a href="#">İletişim</a>
+                    <a href="#">Kariyer</a>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Yardım</h4>
+                    <a href="#">Sıkça Sorulan Sorular</a>
+                    <a href="#">İade Politikası</a>
+                    <a href="#">Kargo Takip</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-social">
+            <a href="#" class="social-icon" aria-label="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="X">
+                <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+        </div>
+    </footer>
+    <!-- BİTİŞ: FOOTER -->
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/app.js"></script>
+</body>
+
+

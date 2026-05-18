@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kral Yolu E-Ticaret - Satıcı Özeti</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Ortak Stiller (Site Geneli Renkler vs için) -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <!-- Satıcı Özel Stiller -->
+    <link rel="stylesheet" href="../../assets/css/satici_panel.css">
+</head>
+<body>
+
+    <!-- SOL SİDEBAR (MENÜ) -->
+    <aside class="seller-sidebar">
+        <div class="seller-brand">
+            <i class="bi bi-shop"></i>
+            <div class="seller-brand-texts">
+                <h4>KRAL YOLU</h4>
+                <small>Satıcı Portalı</small>
+            </div>
+        </div>
+        
+        <ul class="seller-nav">
+            <li>
+                <a href="satici_panel.html" class="active"><i class="bi bi-grid-1x2-fill"></i> Kontrol Paneli</a>
+            </li>
+            
+            <li class="nav-section-title">Ürün Yönetimi</li>
+            <li>
+                <a href="mevcut_urunler.html"><i class="bi bi-box-seam"></i> Mevcut Ürünlerim</a>
+            </li>
+            <li>
+                <a href="yeni_urun_ekle.html"><i class="bi bi-plus-circle-fill"></i> Yeni Ürün Ekle</a>
+            </li>
+            
+            <li class="nav-section-title">Satış & Operasyon</li>
+            <li>
+                <a href="siparisler.html"><i class="bi bi-cart-check-fill"></i> Gelen Siparişler <span class="badge bg-danger ms-auto rounded-pill">3</span></a>
+            </li>
+            <li>
+                <a href="raporlar.html"><i class="bi bi-bar-chart-line-fill"></i> Satış Raporları</a>
+            </li>
+            
+            <li class="nav-section-title">Mağaza Yönetimi</li>
+            <li>
+                <a href="magaza_ayarlari.html"><i class="bi bi-gear-fill"></i> Mağaza Ayarları</a>
+            </li>
+            <li>
+                <a href="../../index.php"><i class="bi bi-door-open text-danger"></i> Güvenli Çıkış</a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- SAĞ ANA İÇERİK -->
+    <main class="seller-main">
+        
+        <!-- Üst Başlık ve Kullanıcı -->
+        <header class="seller-header">
+            <div>
+                <h2 class="m-0 fw-bold" style="color:var(--navy);">Hoş Geldiniz, Tekno Bilişim A.Ş.</h2>
+                <span class="text-muted" style="font-size:0.9rem;">Satışlarınızı ve mağazalarınızı buradan yönetebilirsiniz.</span>
+            </div>
+            <div class="seller-profile-box">
+                <a href="#" class="btn btn-outline-secondary btn-sm fw-bold"><i class="bi bi-eye"></i> Mağazamı Gör</a>
+                <div class="seller-avatar">TB</div>
+            </div>
+        </header>
+
+        <!-- Özet İstatistik Kartları -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <span class="stat-title">Aylık Toplam Satış</span>
+                    <span class="stat-value">124 Adet</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card blue-border">
+                    <span class="stat-title">Aylık Ciro</span>
+                    <span class="stat-value">145.200 ₺</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card red-border">
+                    <span class="stat-title">Bekleyen Sipariş</span>
+                    <span class="stat-value">3 Yeni</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card green-border">
+                    <span class="stat-title">Aktif Ürün Sayısı</span>
+                    <span class="stat-value">45 Ürün</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Son Siparişler Tablosu -->
+        <div class="bg-white p-4 rounded-3 shadow-sm border border-light">
+            <h4 class="fw-bold mb-4" style="color:var(--navy);">Onay Bekleyen Siparişleriniz</h4>
+            <div class="table-responsive">
+                <table class="dashboard-table">
+                    <thead>
+                        <tr>
+                            <th>Sipariş No</th>
+                            <th>Ürün Adı</th>
+                            <th>Müşteri</th>
+                            <th>Adet</th>
+                            <th>Tutar</th>
+                            <th>Durum</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#KRY-10293</td>
+                            <td>Oyuncu Dizüstü Bilgisayarı (RTX)</td>
+                            <td>Emre Tuncer</td>
+                            <td>1</td>
+                            <td>35.000 ₺</td>
+                            <td><span class="badge bg-warning text-dark px-2 py-1">Yeni - Onay Bekliyor</span></td>
+                            <td>
+                                <a href="#" class="btn-sm-action">Siparişi Onayla</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#KRY-10245</td>
+                            <td>Apple iPhone 15 Pro Max 256GB</td>
+                            <td>Ayşe Yılmaz</td>
+                            <td>1</td>
+                            <td>82.999 ₺</td>
+                            <td><span class="badge bg-info px-2 py-1">Paketleniyor</span></td>
+                            <td>
+                                <a href="#" class="btn-sm-action">Kargoya Ver</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,211 @@
+/* =========================================
+   SATICİ PANELİ ÖZEL STİLLERİ
+   ========================================= */
+
+body {
+    background-color: #f1f5f9;
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidebar */
+.seller-sidebar {
+    width: 260px;
+    height: 100vh;
+    background: #0a1120;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.seller-brand {
+    padding: 25px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.seller-brand i {
+    font-size: 1.8rem;
+    color: var(--gold);
+}
+
+.seller-brand-texts h4 {
+    margin: 0;
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.seller-brand-texts small {
+    color: #94a3b8;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.seller-nav {
+    padding: 20px 10px;
+    list-style: none;
+    margin: 0;
+}
+
+.seller-nav li {
+    margin-bottom: 8px;
+}
+
+.seller-nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: #94a3b8;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.seller-nav a i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.seller-nav a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.seller-nav a:hover i {
+    transform: translateX(3px);
+}
+
+.seller-nav a.active {
+    background: var(--gold);
+    color: #0a1120;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.seller-nav a.active i {
+    color: #0a1120;
+}
+
+.seller-nav .nav-section-title {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #475569;
+    margin: 25px 0 10px 16px;
+}
+
+/* Main Content */
+.seller-main {
+    margin-left: 260px;
+    padding: 30px;
+}
+
+.seller-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    margin-bottom: 30px;
+}
+
+.seller-profile-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.seller-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+/* Kutu / Kart Tasarımları */
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    border: 1px solid #f1f5f9;
+    border-left: 3px solid var(--gold);
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-card.blue-border { border-left-color: #3b82f6; }
+.stat-card.green-border { border-left-color: #10b981; }
+.stat-card.red-border { border-left-color: #ef4444; }
+
+.stat-title {
+    color: #64748b;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    color: var(--navy);
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+/* Tablolar */
+.dashboard-table {
+    width: 100%;
+}
+.dashboard-table th {
+    background: #f8fafc;
+    padding: 15px;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+.dashboard-table td {
+    padding: 15px;
+    vertical-align: middle;
+    border-bottom: 1px solid #e2e8f0;
+    color: var(--navy);
+    font-weight: 500;
+}
+
+.btn-sm-action {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 5px 10px;
+    border-radius: 6px;
+    color: var(--navy);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.btn-sm-action:hover {
+    background: var(--gold);
+    color: white;
+    border-color: var(--gold);
+}
+

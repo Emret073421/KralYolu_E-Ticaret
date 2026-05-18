@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kral Yolu E-Ticaret - Hesabım</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Ortak Stiller -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <!-- Profil Özel Stiller -->
+    <link rel="stylesheet" href="../../assets/css/profil.css">
+</head>
+<body>
+
+    <!-- ============================================== -->
+    <!-- BAŞLANGIÇ: NAVBAR (PHP'DEN GELEN SABİT KISIM)  -->
+    <!-- ============================================== -->
+    <header class="ky-header-wrapper">
+        <div class="ky-top-bg">
+            <div class="ky-container flex-header">
+                <!-- LOGO -->
+                <a href="anasayfa.html" class="ky-logo-card">
+                    <div class="ky-logo-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="#d4af37" stroke="#d4af37" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 22l4-10 4 4 2-8 2 8 4-4 4 10z"/>
+                        </svg>
+                    </div>
+                    <div class="ky-logo-text">
+                        <span class="ky-title">KRAL YOLU</span>
+                        <span class="ky-subtitle">E-TİCARET</span>
+                    </div>
+                </a>
+                
+                <!-- TOP RIGHT -->
+                <div class="ky-top-right">
+                    <div class="ky-search-box">
+                        <input type="text" placeholder="Ürün, kategori veya marka ara...">
+                        <button type="button">Ara</button>
+                    </div>
+                    <div class="ky-action-links">
+                        <a href="profil.html" class="ky-action-item">
+                            <i class="bi bi-person-fill ky-gold"></i> <span class="d-none d-md-inline">Profilim</span>
+                        </a>
+                        <a href="favoriler.html" class="ky-action-item">
+                            <i class="bi bi-heart ky-gold"></i> <span class="d-none d-md-inline">Favoriler</span>
+                        </a>
+                        <a href="sepet.html" class="ky-action-item">
+                            <i class="bi bi-cart-fill ky-gold"></i> <span class="d-none d-md-inline">Sepetim</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ky-bottom-nav">
+            <div class="ky-container flex-header-bottom justify-content-center">
+                <nav class="ky-nav-links d-none d-lg-flex mx-auto">
+                    <a href="urunler.html" class="ky-nav-item">Kategoriler <i class="bi bi-chevron-down ms-1" style="font-size:0.8rem"></i></a>
+                    <div class="ky-nav-sep"></div>
+                    <a href="urunler.html" class="ky-nav-item"><i class="bi bi-gender-female ky-gold-icon"></i> Kadın Giyim</a>
+                    <div class="ky-nav-sep"></div>
+                    <a href="urunler.html" class="ky-nav-item"><i class="bi bi-gender-male ky-gold-icon"></i> Erkek Giyim</a>
+                    <div class="ky-nav-sep"></div>
+                    <a href="urunler.html" class="ky-nav-item"><i class="bi bi-emoji-smile ky-gold-icon"></i> Çocuk Giyim</a>
+                    <div class="ky-nav-sep"></div>
+                    <a href="urunler.html" class="ky-nav-item"><i class="bi bi-handbag ky-gold-icon"></i> Ayakkabı & Aksesuar</a>
+                </nav>
+            </div>      
+        </div>
+    </header>
+    <!-- BİTİŞ: NAVBAR -->
+
+    <!-- ============================================== -->
+    <!-- BAŞLANGIÇ: PROFİL İÇERİĞİ                      -->
+    <!-- ============================================== -->
+    <main class="ky-container my-5">
+        
+        <div class="profile-layout">
+            
+            <!-- SOL MENÜ SİDEBAR -->
+            <aside class="profile-sidebar">
+                <!-- Kullanıcı Info -->
+                <div class="profile-user-greeting">
+                    <div class="profile-avatar">
+                        ET
+                    </div>
+                    <div>
+                        <span style="font-size:0.85rem; color:#64748b; font-weight:600;">Merhaba,</span><br>
+                        <strong style="color: var(--navy); font-size:1.1rem;">Emre Tuncer</strong>
+                    </div>
+                </div>
+
+                <!-- Navigasyon Linkleri -->
+                <ul class="profile-menu">
+                    <li class="active" onclick="switchTab(this, 'tab-siparis')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                        Tüm Siparişlerim
+                    </li>
+                    <li onclick="switchTab(this, 'tab-bilgiler')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        Kullanıcı Bilgilerim
+                    </li>
+                    <li onclick="switchTab(this, 'tab-adres')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        Adres Bilgilerim
+                    </li>
+                    <li onclick="switchTab(this, 'tab-kartlar')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                        Ödeme Kartlarım
+                    </li>
+                    <li class="logout-btn" onclick="alert('Çıkış yapılıyor...')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                        Güvenli Çıkış Yap
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- SAĞ İÇERİK ALANI -->
+            <section class="profile-content">
+                
+                <!-- 1. SİPARİŞLERİM TAB -->
+                <div id="tab-siparis" class="profile-tab active">
+                    <h2 class="tab-title">Siparişlerim</h2>
+                    
+                    <!-- Örnek Sipariş Kartı (Teslim Edildi) -->
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div>
+                                <div class="order-info mb-1">
+                                    <span>Sipariş Tarihi</span>
+                                    <strong>20 Nisan 2026</strong>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="order-info mb-1">
+                                    <span>Sipariş Özeti</span>
+                                    <strong>1 Ürün</strong>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="order-info mb-1">
+                                    <span>Toplam Tutar</span>
+                                    <strong>950 TL</strong>
+                                </div>
+                            </div>
+                            <button class="btn btn-sm btn-outline-secondary fw-bold px-3">Detayları Gör</button>
+                        </div>
+                        <div class="order-body flex-column flex-md-row gap-3">
+                            <div class="order-product">
+                                <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=200&auto=format&fit=crop" class="order-img" alt="Gömlek">
+                                <div>
+                                    <div class="order-status delivered mb-2" style="width: max-content;">
+                                        <i class="bi bi-check-circle-fill"></i> Teslim Edildi
+                                    </div>
+                                    <h5 class="mb-1 fw-bold fs-6" style="color:var(--navy)">Erkek Casual Açık Mavi Gömlek Slim Fit</h5>
+                                    <small class="text-muted">Beden: L, Renk: Açık Mavi</small>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn btn-warning btn-sm fw-bold px-3" style="background-color:var(--gold); border:none; color:var(--navy);"><i class="bi bi-arrow-clockwise"></i> Tekrar Satın Al</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Örnek Sipariş Kartı 2 (Kargoda) -->
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div>
+                                <div class="order-info mb-1">
+                                    <span>Sipariş Tarihi</span>
+                                    <strong>18 Nisan 2026</strong>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="order-info mb-1">
+                                    <span>Sipariş Özeti</span>
+                                    <strong>2 Ürün</strong>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="order-info mb-1">
+                                    <span>Toplam Tutar</span>
+                                    <strong>1.300 TL</strong>
+                                </div>
+                            </div>
+                            <button class="btn btn-sm btn-outline-secondary fw-bold px-3">Detayları Gör</button>
+                        </div>
+                        <div class="order-body flex-column flex-md-row gap-3">
+                            <div class="order-product">
+                                <img src="https://images.unsplash.com/photo-1516826957135-700ede19c6ce?q=80&w=200&auto=format&fit=crop" class="order-img" alt="Sweatshirt">
+                                <div>
+                                    <div class="order-status mb-2" style="width: max-content;">
+                                        <i class="bi bi-truck"></i> Kargoya Verildi
+                                    </div>
+                                    <h5 class="mb-1 fw-bold fs-6" style="color:var(--navy)">Oversize Kesim Erkek Sweatshirt (+1 ürün daha)</h5>
+                                    <small class="text-muted">Tahmini Teslimat: Yarın</small>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn btn-outline-primary btn-sm fw-bold px-3" style="color:var(--navy); border-color:var(--navy);"><i class="bi bi-box-seam"></i> Kargo Takip</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. BİLGİLERİM TAB -->
+                <div id="tab-bilgiler" class="profile-tab">
+                    <h2 class="tab-title">Kullanıcı Bilgilerim</h2>
+                    
+                    <form action="#" method="POST" style="max-width: 600px;">
+                        <div class="row g-3">
+                            <div class="col-md-6 ky-form-group">
+                                <label for="isim">Adınız</label>
+                                <input type="text" id="isim" class="ky-form-control" value="Emre" required>
+                            </div>
+                            <div class="col-md-6 ky-form-group">
+                                <label for="soyisim">Soyadınız</label>
+                                <input type="text" id="soyisim" class="ky-form-control" value="Tuncer" required>
+                            </div>
+                        </div>
+
+                        <div class="ky-form-group">
+                            <label for="email">E-Posta Adresi</label>
+                            <input type="email" id="email" class="ky-form-control" value="emrtncr@gmail.com" required>
+                        </div>
+
+                        <div class="ky-form-group">
+                            <label for="gsm">Cep Telefonu</label>
+                            <input type="tel" id="gsm" class="ky-form-control" placeholder="05XX XXX XX XX">
+                        </div>
+
+                        <hr class="my-4" style="border-color:#edf0f5;">
+
+                        <h4 class="mb-3" style="color:var(--navy); font-size:1.1rem; font-weight:700;">Şifre Değişikliği</h4>
+                        <div class="ky-form-group mb-3">
+                            <label for="eski_sifre">Mevcut Şifreniz <span class="text-danger" title="Güvenliğiniz için mevcut şifrenizi girmelisiniz">*</span></label>
+                            <input type="password" id="eski_sifre" class="ky-form-control" placeholder="Mevcut şifrenizi girin">
+                        </div>
+                        <div class="ky-form-group mb-4">
+                            <label for="yeni_sifre">Yeni Şifre <span class="text-muted fw-normal" style="font-size:0.85rem;">(Değiştirmek istemiyorsanız boş bırakın)</span></label>
+                            <input type="password" id="yeni_sifre" class="ky-form-control" placeholder="••••••••">
+                        </div>
+
+                        <button type="button" class="ky-btn-submit" onclick="alert('Bilgiler başarıyla güncellendi!')">
+                            <i class="bi bi-save"></i> BİLGİLERİ GÜNCELLE
+                        </button>
+                    </form>
+                </div>
+
+                <!-- 3. ADRESLER TAB -->
+                <div id="tab-adres" class="profile-tab">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="tab-title m-0">Adres Bilgilerim</h2>
+                    </div>
+
+                    <div class="address-grid">
+                        
+                        <!-- ADD NEW CARD -->
+                        <div class="address-card address-add-new" onclick="alert('Form Sayfasına Yönlendirilecek')">
+                            <i class="bi bi-plus-circle" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+                            Yeni Adres Ekle
+                        </div>
+
+                        <!-- ADRES KARTI: EV -->
+                        <div class="address-card">
+                            <div class="address-card-header">
+                                <i class="bi bi-house-door-fill" style="color:var(--gold); font-size:1.4rem;"></i>
+                                <h4>Ev Adresim</h4>
+                            </div>
+                            <div class="address-card-body">
+                                <strong>Emre Tuncer</strong><br>
+                                Kadıköy Merkez Mah. Moda Cad. No:3 Daire:15 <br>
+                                Kadıköy / İSTANBUL<br>
+                                0555 123 45 67
+                            </div>
+                            <div class="address-card-footer">
+                                <button class="address-action-btn delete"><i class="bi bi-trash3"></i> Sil</button>
+                                <button class="address-action-btn"><i class="bi bi-pencil-square"></i> Düzenle</button>
+                            </div>
+                        </div>
+
+                        <!-- ADRES KARTI: İŞ -->
+                        <div class="address-card">
+                            <div class="address-card-header">
+                                <i class="bi bi-building" style="color:var(--gold); font-size:1.4rem;"></i>
+                                <h4>İş Adresim</h4>
+                            </div>
+                            <div class="address-card-body">
+                                <strong>Emre Tuncer</strong><br>
+                                Mecidiyeköy Mah. Büyükdere Cad. Kral Plaza Kat:5<br>
+                                Şişli / İSTANBUL<br>
+                                0555 123 45 67
+                            </div>
+                            <div class="address-card-footer">
+                                <button class="address-action-btn delete"><i class="bi bi-trash3"></i> Sil</button>
+                                <button class="address-action-btn"><i class="bi bi-pencil-square"></i> Düzenle</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 4. KARTLARIM TAB -->
+                <div id="tab-kartlar" class="profile-tab">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="tab-title m-0">Kayıtlı Kredi Kartlarım</h2>
+                    </div>
+
+                    <div class="address-grid">
+                        
+                        <!-- ADD NEW CARD -->
+                        <div class="address-card address-add-new" onclick="alert('Yeni Kart Ekleme Modalı Açılacak')">
+                            <i class="bi bi-credit-card" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+                            Yeni Kart Ekle
+                        </div>
+
+                        <!-- KART: DİNAMİK KREDİ KARTI TASARIMI -->
+                        <div class="address-card" style="background: linear-gradient(135deg, #1d2d44, #0a1120); color:white; border:none; display:flex; flex-direction:column; justify-content:space-between; height:auto; padding:25px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <span style="font-weight:800; font-size:1.1rem; color:var(--gold); letter-spacing:1px; font-style:italic;">BankKart</span>
+                                <i class="bi bi-wifi" style="font-size:1.5rem; transform: rotate(90deg);"></i>
+                            </div>
+                            <div class="mb-4 text-center">
+                                <span style="font-family:monospace; font-size:1.5rem; letter-spacing:3px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">5342 •••• •••• 1983</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                    <div style="font-size:0.7rem; color:#94a3b8; text-transform:uppercase;">Kart Sahibi</div>
+                                    <div style="font-weight:600; font-size:1rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">EMRE TUNCER</div>
+                                </div>
+                                <div class="text-end">
+                                    <div style="font-size:0.7rem; color:#94a3b8; text-transform:uppercase;">SKT</div>
+                                    <div style="font-weight:600; font-size:0.9rem;">12/28</div>
+                                    <div class="d-flex gap-3 justify-content-end mt-2">
+                                        <button class="btn btn-sm btn-link text-white p-0 text-decoration-none" style="font-size:0.8rem; opacity:0.9;" onclick="alert('Kart Güncelleme Ekranı Açılacak')"><i class="bi bi-pencil-square"></i> Güncelle</button>
+                                        <button class="btn btn-sm btn-link text-danger p-0 text-decoration-none" style="font-size:0.8rem;" onclick="alert('Kart Silindi')"><i class="bi bi-trash3"></i> Sil</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+    </main>
+    <!-- BİTİŞ: PROFİL İÇERİĞİ -->
+
+    <!-- ============================================== -->
+    <!-- BAŞLANGIÇ: FOOTER (PHP'DEN GELEN SABİT KISIM)  -->
+    <!-- ============================================== -->
+    <footer>
+        <div class="footer-logo">
+            <div class="footer-logo-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 22l4-10 4 4 2-8 2 8 4-4 4 10z"/>
+                </svg>
+            </div>
+            <div class="footer-logo-text">
+                <span>KRAL YOLU</span>
+                <span>E-TİCARET</span>
+            </div>
+        </div>
+        
+        <div class="footer-content">
+            <h3>Hakkımızda</h3>
+            <p>Müşterilerimize en kaliteli ürünleri, en hızlı ve güvenilir şekilde sunmayı hedefleyen Türkiye'nin yükselen e-ticaret platformuyuz.</p>
+            <div class="footer-details">
+                <div class="footer-links-group">
+                    <h4>Kurumsal</h4>
+                    <a href="#">Hakkımızda</a>
+                    <a href="#">İletişim</a>
+                    <a href="#">Kariyer</a>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Yardım</h4>
+                    <a href="#">Sıkça Sorulan Sorular</a>
+                    <a href="#">İade Politikası</a>
+                    <a href="#">Kargo Takip</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- BİTİŞ: FOOTER -->
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Sekme Kontrol JS -->
+    <script>
+        function switchTab(element, tabId) {
+            // Sidebar active className remove
+            document.querySelectorAll('.profile-menu li').forEach(el => el.classList.remove('active'));
+            // Content active className remove
+            document.querySelectorAll('.profile-tab').forEach(el => el.classList.remove('active'));
+            
+            // Add active class to clicked & target
+            element.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+    <script src="../../assets/js/app.js"></script>
+</body>
+</html>
+
+
